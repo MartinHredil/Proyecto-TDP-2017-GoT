@@ -1,0 +1,17 @@
+package mapa;
+
+public class Celda {
+	
+	protected int fila;
+	protected int columna;
+	protected Mapa mapa;
+	protected Contenido[] misContenidos;
+	
+	Celda(int f, int c, Mapa m)
+	{
+		mapa = m;
+		fila = f;
+		columna = c;
+	}
+
+}

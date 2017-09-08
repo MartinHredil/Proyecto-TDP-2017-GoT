@@ -1,0 +1,34 @@
+package mapa;
+import herramientas.Coleccion;
+
+public class Celda {
+	
+	protected int fila;
+	protected int columna;
+	protected Mapa mapa;
+	protected Coleccion<Contenido> misContenidos;
+	
+	public Celda(int f, int c, Mapa m)
+	{
+		mapa = m;
+		fila = f;
+		columna = c;
+		misContenidos = new Coleccion<Contenido>(); 
+	}
+	
+	public int getFila()
+	{
+		return fila;
+	}
+	
+	public int getColumna()
+	{
+		return columna;
+	}
+	
+	public Iterator<Contenido> getContenidos()
+	{
+		return misContenidos.iterator();		
+	}
+
+}

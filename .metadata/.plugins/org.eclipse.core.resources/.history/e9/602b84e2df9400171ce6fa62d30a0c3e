@@ -1,0 +1,32 @@
+package mapa;
+
+public abstract class Contenido {
+	protected Celda MiCelda;
+	protected int vida;
+	
+	Contenido(Celda c, int v)
+	{
+		vida = v;
+		MiCelda = c;
+	}
+	
+	Celda getCelda()
+	{
+		return MiCelda;
+	}
+	
+	int getVida()
+	{
+		return vida;
+	}
+	
+	void setVida(int v)
+	{
+		vida = v;
+	}
+	
+	void setCelda(Celda c)
+	{
+		MiCelda = c;
+	}
+}

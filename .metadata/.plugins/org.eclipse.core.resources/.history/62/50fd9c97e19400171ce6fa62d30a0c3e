@@ -1,0 +1,17 @@
+package herramientas;
+
+import java.util.Collection;
+import java.util.LinkedList;
+
+public class Coleccion<E> implements Collection<E>  {
+	
+	LinkedList<E> lista;
+	
+	Coleccion()
+	{
+		lista = new LinkedList<E>();
+	}
+	
+	
+
+}
