@@ -1,0 +1,11 @@
+package enemigos;
+import mapa.*;
+
+
+public class Caminante extends Enemigos {
+
+	public Caminante(Celca c)
+	{
+		super(c);
+	}
+}

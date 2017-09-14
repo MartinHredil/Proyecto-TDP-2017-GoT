@@ -29,9 +29,4 @@ public abstract class Contenido {
 		vida = v;
 	}
 	
-	public JLabel getGrafico()
-	{
-		return grafico;
-	}
-	
 }

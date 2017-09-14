@@ -1,0 +1,13 @@
+package enemigos;
+import javax.swing.JLabel;
+
+import mapa.*;
+
+public class Caminante extends Enemigos {
+
+	public Caminante(Celda c)
+	{
+		super(c);
+		grafico = new JLabel();
+	}
+}

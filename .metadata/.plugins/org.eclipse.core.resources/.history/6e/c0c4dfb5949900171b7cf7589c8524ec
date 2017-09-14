@@ -1,0 +1,10 @@
+package enemigos;
+import mapa.*;
+
+public class Caminante extends Enemigos {
+
+	public Caminante(Celda c)
+	{
+		super(c);
+	}
+}

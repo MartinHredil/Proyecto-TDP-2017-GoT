@@ -29,9 +29,8 @@ public abstract class Contenido {
 		vida = v;
 	}
 	
-	public JLabel getGrafico()
+	public void setCelda(Celda c)
 	{
-		return grafico;
+		miCelda = c;
 	}
-	
 }
