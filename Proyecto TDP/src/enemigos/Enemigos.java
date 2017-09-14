@@ -7,12 +7,12 @@ public abstract class Enemigos extends Contenido {
 	protected int puntos;
 	protected int monedas;
 	
-	public Enemigos(Celda c, int v,int a, int p, int m)
+	public Enemigos(Celda c)
 	{
-		super(c,v);
-		danioAtaque = a;
-		puntos = p;
-		monedas = m;
+		super(c);
+		danioAtaque = 0;
+		puntos = 0;
+		monedas = 0;
 	}
 	
 	public int getDanioAtaque()
@@ -30,5 +30,19 @@ public abstract class Enemigos extends Contenido {
 		return monedas;
 	}
 	
+	public void setDanioAtaque(int d)
+	{
+		danioAtaque = d;
+	}
+	
+	public void setPuntos(int p)
+	{
+		puntos = p;
+	}
+	
+	public void setMonedas(int m)
+	{
+		monedas = m;
+	}
 	
 }

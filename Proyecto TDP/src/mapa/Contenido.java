@@ -1,13 +1,17 @@
 package mapa;
 
+import javax.swing.JLabel;
+
 public abstract class Contenido {
 	protected Celda miCelda;
 	protected int vida;
+	protected JLabel grafico;
 	
-	public Contenido(Celda c, int v)
+	public Contenido(Celda c)
 	{
-		vida = v;
 		miCelda = c;
+		grafico = null;
+		vida = 0;
 	}
 	
 	public Celda getCelda()

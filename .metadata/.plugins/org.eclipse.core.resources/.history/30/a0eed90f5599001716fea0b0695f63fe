@@ -1,0 +1,16 @@
+package personajes;
+import javax.swing.JLabel;
+
+import mapa.*;
+
+public class Soldado extends Personajes{
+
+	
+	
+	public Soldado(Celda c, int v, int d)
+	{
+		
+		super(c,v,d);
+		grafico = new JLabel();
+	}
+}

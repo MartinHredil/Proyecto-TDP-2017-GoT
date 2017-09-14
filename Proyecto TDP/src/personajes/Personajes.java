@@ -1,13 +1,23 @@
 package personajes;
+
 import mapa.*;
 
 public abstract class Personajes extends Contenido {
 
 	protected int danioAtaque;
 	
-	Personajes(Celda c, int v, int d)
+	public Personajes(Celda c)
 	{
-		super(c,v);
+		super(c);
+	}
+	
+	public int getDanioAtaque()
+	{
+		return danioAtaque;
+	}
+	
+	public void setDanioAtaque(int d)
+	{
 		danioAtaque = d;
 	}
 }

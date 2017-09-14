@@ -5,6 +5,6 @@ public abstract class Objeto extends Contenido {
 
 	Objeto(Celda c, int v)
 	{
-		super(c,v);
+		super(c);
 	}
 }

@@ -1,0 +1,13 @@
+package personajes;
+import mapa.*;
+
+public class Soldado extends Personajes{
+
+	
+	
+	public Personaje(Celda c, int v, int d)
+	{
+		super(c,v,d);
+		
+	}
+}
