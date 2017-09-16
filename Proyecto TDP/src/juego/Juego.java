@@ -1,12 +1,11 @@
 package juego;
 import mapa.*;
+import personajes.*;
 import niveles.*;
-
-import java.awt.Graphics;
-import java.util.Iterator;
-
+import objetos.*;
 import enemigos.*;
 import herramientas.*;
+import java.util.Iterator;
 
 public class Juego {
 
@@ -15,7 +14,10 @@ public class Juego {
 	protected int cantFilas;
 	protected int cantColumnas;
 	protected Coleccion<Enemigos> enemigos;
-	protected Thread moverEnemigos;
+	protected Coleccion<Personajes> personajes;
+	protected Coleccion<Objeto> objetos;
+	protected GUI gui;
+	protected Thread refresco, moverEnemigos;
 	
 	public Juego()
 	{
@@ -24,14 +26,22 @@ public class Juego {
 		cantFilas=6;
 		cantColumnas=10;
 		enemigos = new Coleccion<Enemigos>();
+		personajes = new Coleccion<Personajes>();
+		objetos = new Coleccion<Objeto>();
 		
-		enemigos.add(new Muerto(mapa.getCelda(0, 9)));
-		enemigos.add(new Muerto(mapa.getCelda(2, 5)));
-		enemigos.add(new Muerto(mapa.getCelda(5, 7)));
-		enemigos.add(new Muerto(mapa.getCelda(1, 1)));
+		//PRUEBA
 		
-		moverEnemigos = new MoverEnemigos(this);
-		iniciar();
+		Enemigos prueba=new Muerto(mapa.getCelda(0,9));
+		enemigos.add(prueba);
+		mapa.getCelda(0,9).agregar(prueba);
+		
+		Personajes prueba2= new Soldado(mapa.getCelda(0, 0));
+		mapa.getCelda(0,0).agregar(prueba2);
+		
+		//FIN PRUEBA
+		
+		iniciarGUI();
+		
 	}
 	
 	public Juego(int f, int c)
@@ -40,6 +50,12 @@ public class Juego {
 		nivel = new Nivel1();
 		cantFilas=f;
 		cantColumnas=c;
+		enemigos = new Coleccion<Enemigos>();
+		personajes = new Coleccion<Personajes>();
+		objetos = new Coleccion<Objeto>();
+		
+		iniciarGUI();
+		
 	}
 	
 	public Juego(Nivel n)
@@ -48,6 +64,11 @@ public class Juego {
 		nivel = n;
 		cantFilas=6;
 		cantColumnas=10;
+		enemigos = new Coleccion<Enemigos>();
+		personajes = new Coleccion<Personajes>();
+		objetos = new Coleccion<Objeto>();
+		
+		iniciarGUI();
 	}
 	
 	public Juego(int f, int c, Nivel n)
@@ -56,11 +77,11 @@ public class Juego {
 		nivel = n;
 		cantFilas=f;
 		cantColumnas=c;
-	}
-	
-	private void iniciar()
-	{
-		moverEnemigos.start();
+		enemigos = new Coleccion<Enemigos>();
+		personajes = new Coleccion<Personajes>();
+		objetos = new Coleccion<Objeto>();
+		
+		iniciarGUI();
 	}
 	
 	public int getFilas()
@@ -83,4 +104,33 @@ public class Juego {
 		return enemigos.iterator();
 	}
 	
+	public GUI getGUI()
+	{
+		return gui;
+	}
+
+	public void eliminar(Enemigos e)
+	{
+		enemigos.remove(e);
+		e.eliminar();
+	}
+	
+	private void iniciarGUI()
+	{
+		gui = new GUI(this);
+		refrescar();
+		moverEnemigos();
+	}
+	
+	private void refrescar()
+	{
+		refresco = new RefrescarGUI(gui);
+		refresco.start();
+	}
+	
+	private void moverEnemigos()
+	{
+		moverEnemigos = new MoverEnemigos(this);
+		moverEnemigos.start();
+	}
 }

@@ -1,6 +1,5 @@
 package mapa;
 import juego.*;
-import javax.swing.*;
 
 public class Mapa {
 

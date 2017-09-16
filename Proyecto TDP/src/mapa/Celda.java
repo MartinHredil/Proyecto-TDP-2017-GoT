@@ -1,9 +1,8 @@
 package mapa;
-import java.awt.*;
 import java.util.Iterator;
-import javax.swing.*;
 import herramientas.*;
 import enemigos.*;
+import personajes.*;
 
 
 public class Celda {
@@ -68,7 +67,7 @@ public class Celda {
 	
 	public Celda getDerecha()
 	{
-		return mapa.getCelda(fila, columna);
+		return mapa.getCelda(fila, columna-1);
 	}
 	
 	public void quitarEnemigo()
@@ -76,9 +75,14 @@ public class Celda {
 		misContenidos[1]=null;
 	}
 	
-	public void agregarEnemigo(Enemigos e)
+	public void agregar(Enemigos e)
 	{
 		misContenidos[1]=e;
+	}
+	
+	public void agregar(Personajes p)
+	{
+		misContenidos[0]=p;
 	}
 	
 	

@@ -1,0 +1,93 @@
+package juego;
+import mapa.*;
+import niveles.*;
+
+import java.awt.Graphics;
+import java.util.Iterator;
+
+import enemigos.*;
+import herramientas.*;
+
+public class Juego {
+
+	protected Nivel nivel;
+	protected Mapa mapa;
+	protected int cantFilas;
+	protected int cantColumnas;
+	protected Coleccion<Enemigos> enemigos;
+	protected GUI gui;
+	protected Thread refresco;
+	
+	public Juego()
+	{
+		mapa = new Mapa(6,10,this);
+		nivel = new Nivel1();
+		cantFilas=6;
+		cantColumnas=10;
+		enemigos = new Coleccion<Enemigos>();
+		
+		Enemigos prueba=new Muerto(mapa.getCelda(0,9));
+		enemigos.add(prueba);
+		mapa.getCelda(0,9).agregarEnemigo(prueba);
+		
+		gui = new GUI(this);
+		prueba.mover();
+		gui.repaint();
+	}
+	
+	public Juego(int f, int c)
+	{
+		mapa = new Mapa(f,c,this);
+		nivel = new Nivel1();
+		cantFilas=f;
+		cantColumnas=c;
+	}
+	
+	public Juego(Nivel n)
+	{
+		mapa = new Mapa(6,10,this);
+		nivel = n;
+		cantFilas=6;
+		cantColumnas=10;
+	}
+	
+	public Juego(int f, int c, Nivel n)
+	{
+		mapa = new Mapa(f,c,this);
+		nivel = n;
+		cantFilas=f;
+		cantColumnas=c;
+	}
+	
+	public void refrescar()
+	{
+		refresco = new RefrescarGUI(gui);
+		refresco.start();
+	}
+	
+	public int getFilas()
+	{
+		return cantFilas;
+	}
+	
+	public int getColumnas()
+	{
+		return cantColumnas;
+	}
+	
+	public Mapa getMapa()
+	{
+		return mapa;
+	}
+	
+	public Iterator<Enemigos> getEnemigos()
+	{
+		return enemigos.iterator();
+	}
+	
+	public GUI getGUI()
+	{
+		return gui;
+	}
+	
+}

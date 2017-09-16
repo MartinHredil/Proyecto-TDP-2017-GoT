@@ -1,11 +1,9 @@
 package juego;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.Iterator;
 
 import mapa.*;
-import enemigos.*;
 
 public class GUI extends JFrame{
 
@@ -33,7 +31,7 @@ public class GUI extends JFrame{
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
-		setSize(ancho+16, alto+138);
+		setSize(ancho+6, alto+129);
 		
 		inicializarPanelBotones();
 		inicializarPanelJuego();
@@ -42,6 +40,8 @@ public class GUI extends JFrame{
 		
 		getContentPane().add(panelOpciones);
 		getContentPane().add(panelJuego);
+		this.setResizable(false);
+		this.setVisible(true);
 	}
 	
 	private void inicializarPanelBotones()
@@ -58,23 +58,12 @@ public class GUI extends JFrame{
 		panelJuego.setLayout(null);
 		panelJuego.setBackground(new Color(135,206,255));
 		panelJuego.setBounds(0, 100, ancho, alto);
-		/*
-		for(int i=0;i<cantFilas;i++)
-		{
-			for(int j=0;j<cantColumnas;j++)
-			{
-				//etiqueta= mapa.getEtiqueta(i, j);
-				etiqueta.setBounds(j*80,i*80,80,80);
-				panelJuego.add(etiqueta);
-			}
-		}
-		*/
 		
 		for(int i=0;i<cantFilas;i++)
 		{
 			for(int j=0;j<cantColumnas;j++)
 			{
-				Iterator<Contenido> it = mapa.getCelda(i, j).getContenido();
+				Iterator<Contenido> it = mapa.getCelda(i,j).getContenido();
 				while(it.hasNext())
 				{
 					etiqueta = it.next().getGrafico();
@@ -83,7 +72,26 @@ public class GUI extends JFrame{
 				}
 			}
 		}
-		
-		
+	}
+	
+	public void refrescar()
+	{
+		for(int i=0;i<cantFilas;i++)
+		{
+			for(int j=0;j<cantColumnas;j++)
+			{
+				Iterator<Contenido> it = mapa.getCelda(i,j).getContenido();
+				while(it.hasNext())
+				{
+					etiqueta = it.next().getGrafico();
+					etiqueta.setBounds(j*80,i*80,80,80);
+				}
+			}
+		}
+	}
+	
+	public JPanel getPanelJuego()
+	{
+		return panelJuego;
 	}
 }
