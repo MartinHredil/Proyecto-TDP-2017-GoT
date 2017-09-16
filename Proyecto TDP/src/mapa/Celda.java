@@ -1,14 +1,13 @@
 package mapa;
-
+import java.awt.*;
 import java.util.Iterator;
-
-import javax.swing.JLabel;
-
+import javax.swing.*;
 import herramientas.*;
+import enemigos.*;
+
 
 public class Celda {
 	
-	protected JLabel fondo;
 	protected int fila;
 	protected int columna;
 	protected Mapa mapa;
@@ -19,11 +18,11 @@ public class Celda {
 		mapa = m;
 		fila = f;
 		columna = c;
-		misContenidos = new Contenido[3]; 
+		misContenidos = new Contenido[4]; 
 		misContenidos[0]=null;
 		misContenidos[1]=null;
 		misContenidos[2]=null;
-		fondo = new JLabel();
+		misContenidos[3]=null;
 	}
 	
 	public int getFila()
@@ -41,25 +40,20 @@ public class Celda {
 		return mapa;
 	}
 	
-	/*public Iterator<Contenido> getContenidos()
+	public Iterator<Contenido> getContenido()
 	{
-		return misContenidos.iterator();		
-	}
-	
-	public boolean addContenido(Contenido c)
-	{
-		return misContenidos.add(c);
-	}
-	
-	public boolean removeContenido(Contenido c)
-	{
-		return misContenidos.remove(c);
-	}
-	*/
-	
-	public JLabel getFondo()
-	{
-		return fondo;
+		Coleccion<Contenido> c = new Coleccion<Contenido>();
+		
+		if(misContenidos[0]!=null)
+		c.add(misContenidos[0]);
+		if(misContenidos[1]!=null)
+		c.add(misContenidos[1]);
+		if(misContenidos[2]!=null)
+		c.add(misContenidos[2]);
+		if(misContenidos[3]!=null)
+		c.add(misContenidos[3]);
+		
+		return c.iterator();		
 	}
 	
 	public void setFila(int f)
@@ -71,5 +65,21 @@ public class Celda {
 	{
 		columna = c;
 	}
+	
+	public Celda getDerecha()
+	{
+		return mapa.getCelda(fila, columna);
+	}
+	
+	public void quitarEnemigo()
+	{
+		misContenidos[1]=null;
+	}
+	
+	public void agregarEnemigo(Enemigos e)
+	{
+		misContenidos[1]=e;
+	}
+	
 	
 }

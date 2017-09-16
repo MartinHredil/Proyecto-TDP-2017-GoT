@@ -1,0 +1,9 @@
+package enemigos;
+
+public abstract class MoverEnemigo extends Thread {
+
+	public MoverEnemigo()
+	{
+		
+	}
+}

@@ -1,5 +1,6 @@
 package mapa;
 import juego.*;
+import javax.swing.*;
 
 public class Mapa {
 
@@ -15,5 +16,10 @@ public class Mapa {
 			{
 				celdas[i][k] = new Celda(i,k,this);
 			}
+	}
+	
+	public Celda getCelda(int f, int c)
+	{
+		return celdas[f][c];
 	}
 }

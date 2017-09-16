@@ -45,4 +45,6 @@ public abstract class Enemigos extends Contenido {
 		monedas = m;
 	}
 	
+	public abstract void mover();
+	
 }

@@ -1,5 +1,5 @@
 package enemigos;
-import javax.swing.JLabel;
+import javax.swing.*;
 
 import mapa.*;
 
@@ -9,5 +9,13 @@ public class Muerto extends Enemigos {
 	{
 		super(c);
 		grafico = new JLabel();
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Muerto.png")));
+	}
+	
+	public void mover()
+	{
+		miCelda.quitarEnemigo();
+		miCelda= miCelda.getDerecha();
+		miCelda.agregarEnemigo(this);
 	}
 }

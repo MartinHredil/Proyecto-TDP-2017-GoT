@@ -1,0 +1,69 @@
+package juego;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import mapa.*;
+
+public class GUI extends JFrame{
+
+	int cantFilas;
+	int cantColumnas;
+	int alto;
+	int ancho;
+	
+	Juego juego;
+	Mapa mapa;
+	
+	JPanel panelOpciones;
+	JPanel panelJuego;
+	
+	JLabel etiqueta;
+	
+	public GUI(Juego j)
+	{
+		juego = j;
+		mapa = juego.getMapa();
+		cantFilas = juego.getFilas();
+		cantColumnas = juego.getColumnas();
+		alto = cantFilas * 110;
+		ancho = cantColumnas * 100;
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
+		setSize(ancho, alto+100);
+		
+		inicializarPanelBotones();
+		inicializarPanelJuego();
+		
+		getContentPane().setBackground(Color.green);
+		
+		getContentPane().add(panelOpciones);
+		getContentPane().add(panelJuego);
+		
+	}
+	
+	private void inicializarPanelBotones()
+	{
+		panelOpciones = new JPanel();
+		panelOpciones.setLayout(null);
+		panelOpciones.setBackground(Color.blue);
+		panelOpciones.setBounds(0,0, ancho, 100);
+	}
+	
+	private void inicializarPanelJuego()
+	{
+		panelJuego = new JPanel();
+		panelJuego.setLayout(null);
+		panelJuego.setBackground(Color.red);
+		panelJuego.setBounds(0, 100, ancho, alto);
+		
+		for(int i=0;i<cantFilas;i++)
+		{
+			for(int j=0;j<cantColumnas;j++)
+			{
+				etiqueta= mapa.getEtiqueta(i, j);
+			}
+		}
+		
+	}
+}

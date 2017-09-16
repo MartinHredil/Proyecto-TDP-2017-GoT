@@ -1,0 +1,21 @@
+package enemigos;
+import juego.*;
+
+public class MoverEnemigos extends Thread {
+
+	private Juego juego;
+	
+	public MoverEnemigos(Juego j)
+	{
+		juego = j;
+	}
+	
+	public void run()
+	{
+		for(Enemigos e:juego.getEnemigos())
+		{
+			
+		}
+		
+	}
+}
