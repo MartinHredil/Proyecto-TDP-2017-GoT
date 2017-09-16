@@ -1,7 +1,6 @@
 package mapa;
 import java.util.Iterator;
 import herramientas.*;
-import objetos.Objeto;
 import enemigos.*;
 import personajes.*;
 
@@ -71,27 +70,19 @@ public class Celda {
 		return mapa.getCelda(fila, columna-1);
 	}
 	
-	public void quitar(int p)
+	public void quitarEnemigo()
 	{
-		misContenidos[p]=null;
+		misContenidos[1]=null;
 	}
 	
 	public void agregar(Enemigos e)
 	{
 		misContenidos[1]=e;
-		e.setPosicion(1);
 	}
 	
 	public void agregar(Personajes p)
 	{
 		misContenidos[0]=p;
-		p.setPosicion(0);
-	}
-	
-	public void agregar(Objeto o)
-	{
-		misContenidos[2]=o;
-		o.setPosicion(2);
 	}
 	
 	

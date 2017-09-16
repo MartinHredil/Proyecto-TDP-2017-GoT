@@ -45,6 +45,12 @@ public abstract class Enemigos extends Contenido {
 		monedas = m;
 	}
 	
+	public void eliminar()
+	{
+		grafico.setIcon(null);
+		miCelda.quitarEnemigo();
+	}
+	
 	public abstract void mover();
 	
 }

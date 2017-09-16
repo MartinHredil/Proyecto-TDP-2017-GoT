@@ -14,7 +14,7 @@ public class Muerto extends Enemigos {
 	
 	public void mover()
 	{
-		miCelda.quitar(posicion);
+		miCelda.quitar();
 		miCelda = miCelda.getDerecha();
 		miCelda.agregar(this);
 	}

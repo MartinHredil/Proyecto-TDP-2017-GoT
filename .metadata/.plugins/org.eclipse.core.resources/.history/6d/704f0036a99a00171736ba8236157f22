@@ -117,13 +117,13 @@ public class Juego {
 	
 	public void eliminar(Personajes p)
 	{
-		personajes.remove(p);
+		enemigos.remove(p);
 		p.destruir();
 	}
 	
 	public void eliminar(Objeto o)
 	{
-		objetos.remove(o);
+		enemigos.remove(o);
 		o.destruir();
 	}
 	

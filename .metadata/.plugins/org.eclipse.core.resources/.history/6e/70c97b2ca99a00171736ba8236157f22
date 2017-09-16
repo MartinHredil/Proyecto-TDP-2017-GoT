@@ -115,18 +115,6 @@ public class Juego {
 		e.destruir();
 	}
 	
-	public void eliminar(Personajes p)
-	{
-		personajes.remove(p);
-		p.destruir();
-	}
-	
-	public void eliminar(Objeto o)
-	{
-		objetos.remove(o);
-		o.destruir();
-	}
-	
 	private void iniciarGUI()
 	{
 		gui = new GUI(this);
