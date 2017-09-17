@@ -14,16 +14,9 @@ public class Muerto extends Enemigos {
 	
 	public void mover()
 	{
-		if(miCelda.getColumna()==0)
-		{
-			//TERMINAR JUEGO
-		}
-		else
-		{
-			miCelda.quitar(posicion);
-			miCelda = miCelda.getDerecha();
-			miCelda.agregar(this);
-		}
+		miCelda.quitar(posicion);
+		miCelda = miCelda.getDerecha();
+		miCelda.agregar(this);
 	}
 	
 }
