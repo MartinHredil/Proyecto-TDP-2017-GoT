@@ -58,10 +58,7 @@ public class Celda {
 	
 	public Celda getDerecha()
 	{
-		Celda toReturn = null;
-		if(columna-1>=0)
-			toReturn = mapa.getCelda(fila, columna-1);
-		return toReturn;
+		return mapa.getCelda(fila, columna-1);
 	}
 	
 	public void quitar(int p)

@@ -56,12 +56,19 @@ public class Celda {
 		return c.iterator();		
 	}
 	
+	public void setFila(int f)
+	{
+		fila = f;
+	}
+	
+	public void setColumna(int c)
+	{
+		columna = c;
+	}
+	
 	public Celda getDerecha()
 	{
-		Celda toReturn = null;
-		if(columna-1>=0)
-			toReturn = mapa.getCelda(fila, columna-1);
-		return toReturn;
+		return mapa.getCelda(fila, columna-1);
 	}
 	
 	public void quitar(int p)
