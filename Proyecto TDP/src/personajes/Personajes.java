@@ -9,6 +9,7 @@ public abstract class Personajes extends Contenido {
 	public Personajes(Celda c)
 	{
 		super(c);
+		posicion = 0;
 	}
 	
 	public int getDanioAtaque()

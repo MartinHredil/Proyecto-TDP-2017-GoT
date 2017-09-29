@@ -13,6 +13,7 @@ public abstract class Enemigos extends Contenido {
 		danioAtaque = 0;
 		puntos = 0;
 		monedas = 0;
+		posicion = 1;
 	}
 	
 	public int getDanioAtaque()

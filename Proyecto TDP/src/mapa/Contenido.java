@@ -45,9 +45,15 @@ public abstract class Contenido {
 		posicion = p;
 	}
 	
+	public void setCelda(Celda c)
+	{
+		miCelda = c;
+	}
+	
 	public void destruir()
 	{
 		grafico.setIcon(null);
 		miCelda.quitar(posicion);
+		miCelda = null;
 	}
 }

@@ -40,6 +40,23 @@ public class Celda {
 		return mapa;
 	}
 	
+	public boolean ocupado(int p)
+	{
+		return !(misContenidos[p]==null);
+	}
+	
+	/*public boolean ocupado()
+	{
+		boolean toReturn = true;
+		int cont = 0;
+		while(toReturn && cont<misContenidos.length)
+		{
+			toReturn = misContenidos[cont] == null;
+		}
+		
+		return !toReturn;
+	}*/
+	
 	public Iterator<Contenido> getContenido()
 	{
 		Coleccion<Contenido> c = new Coleccion<Contenido>();
@@ -69,22 +86,9 @@ public class Celda {
 		misContenidos[p]=null;
 	}
 	
-	public void agregar(Enemigos e)
+	public void agregar(Contenido c)
 	{
-		misContenidos[1]=e;
-		e.setPosicion(1);
-	}
-	
-	public void agregar(Personajes p)
-	{
-		misContenidos[0]=p;
-		p.setPosicion(0);
-	}
-	
-	public void agregar(Objeto o)
-	{
-		misContenidos[2]=o;
-		o.setPosicion(2);
+		misContenidos[c.getPosicion()]=c;
 	}
 	
 	

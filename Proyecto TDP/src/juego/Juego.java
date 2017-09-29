@@ -145,4 +145,5 @@ public class Juego {
 		moverEnemigos = new MoverEnemigos(this);
 		moverEnemigos.start();
 	}
+
 }

@@ -1,24 +1,31 @@
 package juego;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Iterator;
 
 import mapa.*;
+import enemigos.*;
+import personajes.*;
 
 public class GUI extends JFrame{
 
-	int cantFilas;
-	int cantColumnas;
-	int alto;
-	int ancho;
+	protected int cantFilas;
+	protected int cantColumnas;
+	protected int alto;
+	protected int ancho;	
 	
-	Juego juego;
-	Mapa mapa;
+	protected Juego juego;
+	protected Mapa mapa;
+	protected Contenido fabricado;
 	
-	JPanel panelOpciones;
-	JPanel panelJuego;
+	protected JPanel panelOpciones;
+	protected JPanel panelJuego;
 	
-	JLabel etiqueta;
+	protected JLabel etiqueta;
 	
 	public GUI(Juego ju)
 	{
@@ -28,6 +35,7 @@ public class GUI extends JFrame{
 		cantColumnas = juego.getColumnas();
 		alto = cantFilas * 80;
 		ancho = cantColumnas * 80;
+		fabricado = null;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
@@ -50,6 +58,20 @@ public class GUI extends JFrame{
 		panelOpciones.setLayout(null);
 		panelOpciones.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelOpciones.setBounds(0,0, ancho, 100);
+		
+		JButton botonAgregarEnemigo = new JButton();
+		botonAgregarEnemigo.setBounds(0, 0, 80, 80);
+		botonAgregarEnemigo.setIcon(new ImageIcon(this.getClass().getResource("/sources/Muerto.png")));
+		botonAgregarEnemigo.addActionListener(new OyenteAgregarEnemigo());
+		
+		
+		JButton botonAgregarPersonaje = new JButton();
+		botonAgregarPersonaje.setBounds(80, 0, 80, 80);
+		botonAgregarPersonaje.setIcon(new ImageIcon(this.getClass().getResource("/sources/Soldado.png")));
+		botonAgregarPersonaje.addActionListener(new OyenteAgregarPersonaje());
+		
+		panelOpciones.add(botonAgregarEnemigo);
+		panelOpciones.add(botonAgregarPersonaje);
 	}
 	
 	private void inicializarPanelJuego()
@@ -72,6 +94,8 @@ public class GUI extends JFrame{
 				}
 			}
 		}
+		
+		panelJuego.addMouseListener(new OyentePanelMouse());
 	}
 	
 	public void refrescar()
@@ -94,4 +118,54 @@ public class GUI extends JFrame{
 	{
 		return panelJuego;
 	}
+	
+	private class OyenteAgregarEnemigo implements ActionListener {
+        public void actionPerformed(ActionEvent e)
+        {
+            fabricado = new Muerto(null);
+        }
+    }
+	
+	private class OyenteAgregarPersonaje implements ActionListener {
+        public void actionPerformed(ActionEvent e)
+        {
+        	fabricado = new Soldado(null);
+        }
+    }
+	
+	private class OyentePanelMouse implements MouseListener {
+        public void mousePressed(MouseEvent e)
+        {
+        	int i = e.getY() / 80;
+        	int j = e.getX() / 80;
+        	if(fabricado!=null)
+        	{
+        		Celda aux = mapa.getCelda(i, j);
+        		if(!aux.ocupado(fabricado.getPosicion()))
+        		{
+        			aux.agregar(fabricado);
+        			fabricado.setCelda(aux);
+        			panelJuego.add(fabricado.getGrafico());
+        			fabricado=null;
+        		}
+        	}
+        }
+        
+        public void mouseEntered(MouseEvent e)
+        {
+        }
+        
+        public void mouseExited(MouseEvent e)
+        {
+        }
+        
+        public void mouseClicked(MouseEvent e)
+        {
+        }
+        
+        public void mouseReleased(MouseEvent e)
+        {
+        }
+    }
+
 }
