@@ -1,0 +1,43 @@
+package Enemigo;
+import juego.Juego;
+import mapa.*;
+
+public abstract class Enemigo extends Contenido {
+
+	protected int danioAtaque;
+	protected int puntos;
+	protected int monedas;
+	
+	public Enemigo(Celda c)
+	{
+		super(c);
+		danioAtaque = 0;
+		puntos = 0;
+		monedas = 0;
+		posicion = 1;
+	}
+	
+	public int getDanioAtaque()
+	{
+		return danioAtaque;
+	}
+	
+	public void setDanioAtaque(int d)
+	{
+		danioAtaque = d;
+	}
+	
+	public void destruir()
+	{
+		grafico.setIcon(null);
+		miCelda.quitar(posicion);
+		Juego j = miCelda.getMapa().getJuego();
+		j.incrementarMonedas(monedas);
+		j.incrementarPuntos(puntos);
+		j.eliminar(this);
+		miCelda = null;
+	}
+	
+	public abstract void mover();
+	
+}

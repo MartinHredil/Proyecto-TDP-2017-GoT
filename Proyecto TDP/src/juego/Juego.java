@@ -13,8 +13,10 @@ public class Juego {
 	protected Mapa mapa;
 	protected int cantFilas;
 	protected int cantColumnas;
-	protected Coleccion<Enemigos> enemigos;
-	protected Coleccion<Personajes> personajes;
+	protected int puntos;
+	protected int monedas;
+	protected Coleccion<Enemigo> enemigos;
+	protected Coleccion<Personaje> personajes;
 	protected Coleccion<Objeto> objetos;
 	protected GUI gui;
 	protected Thread refresco, moverEnemigos;
@@ -22,20 +24,24 @@ public class Juego {
 	public Juego()
 	{
 		mapa = new Mapa(6,10,this);
-		nivel = new Nivel1();
+		
+		//nivel = new Nivel1();
+		
 		cantFilas=6;
 		cantColumnas=10;
-		enemigos = new Coleccion<Enemigos>();
-		personajes = new Coleccion<Personajes>();
+		enemigos = new Coleccion<Enemigo>();
+		personajes = new Coleccion<Personaje>();
 		objetos = new Coleccion<Objeto>();
+		puntos=0;
+		monedas=0;
 		
 		//PRUEBA
 		
-		Enemigos prueba=new Muerto(mapa.getCelda(0,9));
+		Enemigo prueba=new Muerto(mapa.getCelda(0,9));
 		enemigos.add(prueba);
 		mapa.getCelda(0,9).agregar(prueba);
 		
-		Personajes prueba2= new Soldado(mapa.getCelda(0, 0));
+		Personaje prueba2= new Soldado(mapa.getCelda(0, 0));
 		mapa.getCelda(0,0).agregar(prueba2);
 		
 		//FIN PRUEBA
@@ -47,12 +53,16 @@ public class Juego {
 	public Juego(int f, int c)
 	{
 		mapa = new Mapa(f,c,this);
-		nivel = new Nivel1();
+		
+		//nivel = new Nivel1();
+		
 		cantFilas=f;
 		cantColumnas=c;
-		enemigos = new Coleccion<Enemigos>();
-		personajes = new Coleccion<Personajes>();
+		enemigos = new Coleccion<Enemigo>();
+		personajes = new Coleccion<Personaje>();
 		objetos = new Coleccion<Objeto>();
+		puntos=0;
+		monedas=0;
 		
 		iniciarGUI();
 		
@@ -64,9 +74,11 @@ public class Juego {
 		nivel = n;
 		cantFilas=6;
 		cantColumnas=10;
-		enemigos = new Coleccion<Enemigos>();
-		personajes = new Coleccion<Personajes>();
+		enemigos = new Coleccion<Enemigo>();
+		personajes = new Coleccion<Personaje>();
 		objetos = new Coleccion<Objeto>();
+		puntos=0;
+		monedas=0;
 		
 		iniciarGUI();
 	}
@@ -77,9 +89,11 @@ public class Juego {
 		nivel = n;
 		cantFilas=f;
 		cantColumnas=c;
-		enemigos = new Coleccion<Enemigos>();
-		personajes = new Coleccion<Personajes>();
+		enemigos = new Coleccion<Enemigo>();
+		personajes = new Coleccion<Personaje>();
 		objetos = new Coleccion<Objeto>();
+		puntos=0;
+		monedas=0;
 		
 		iniciarGUI();
 	}
@@ -94,12 +108,22 @@ public class Juego {
 		return cantColumnas;
 	}
 	
+	public int getMonedas()
+	{
+		return monedas;
+	}
+	
+	public int getPuntos()
+	{
+		return puntos;
+	}
+	
 	public Mapa getMapa()
 	{
 		return mapa;
 	}
 	
-	public Iterator<Enemigos> getEnemigos()
+	public Iterator<Enemigo> getEnemigos()
 	{
 		return enemigos.iterator();
 	}
@@ -109,22 +133,29 @@ public class Juego {
 		return gui;
 	}
 
-	public void eliminar(Enemigos e)
+	public void eliminar(Enemigo e)
 	{
 		enemigos.remove(e);
-		e.destruir();
 	}
 	
-	public void eliminar(Personajes p)
+	public void eliminar(Personaje p)
 	{
 		personajes.remove(p);
-		p.destruir();
 	}
 	
 	public void eliminar(Objeto o)
 	{
 		objetos.remove(o);
-		o.destruir();
+	}
+	
+	public void incrementarMonedas(int m)
+	{
+		monedas+=m;
+	}
+	
+	public void incrementarPuntos(int p)
+	{
+		puntos+=p;
 	}
 	
 	private void iniciarGUI()
@@ -142,7 +173,7 @@ public class Juego {
 	
 	private void moverEnemigos()
 	{
-		moverEnemigos = new MoverEnemigos(this);
+		moverEnemigos = new MoverEnemigo(this);
 		moverEnemigos.start();
 	}
 

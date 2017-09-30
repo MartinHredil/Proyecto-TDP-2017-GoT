@@ -21,4 +21,9 @@ public class Mapa {
 	{
 		return celdas[f][c];
 	}
+	
+	public Juego getJuego()
+	{
+		return juego;
+	}
 }

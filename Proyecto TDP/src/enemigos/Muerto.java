@@ -3,13 +3,16 @@ import javax.swing.*;
 
 import mapa.*;
 
-public class Muerto extends Enemigos {
+public class Muerto extends Enemigo {
 
 	public Muerto(Celda c)
 	{
 		super(c);
 		grafico = new JLabel();
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Muerto.png")));
+		
+		monedas = 200;
+		puntos = 500;
 	}
 	
 	public void mover()
@@ -21,7 +24,7 @@ public class Muerto extends Enemigos {
 		else
 		{
 			miCelda.quitar(posicion);
-			miCelda = miCelda.getDerecha();
+			miCelda = miCelda.getIzquierda();
 			miCelda.agregar(this);
 		}
 	}

@@ -26,6 +26,8 @@ public class GUI extends JFrame{
 	protected JPanel panelJuego;
 	
 	protected JLabel etiqueta;
+	protected JLabel etiquetaPuntos;
+	protected JLabel etiquetaMonedas;
 	
 	public GUI(Juego ju)
 	{
@@ -70,8 +72,16 @@ public class GUI extends JFrame{
 		botonAgregarPersonaje.setIcon(new ImageIcon(this.getClass().getResource("/sources/Soldado.png")));
 		botonAgregarPersonaje.addActionListener(new OyenteAgregarPersonaje());
 		
+		etiquetaPuntos = new JLabel("Puntos: "+juego.getPuntos());
+		etiquetaPuntos.setBounds(160,0 , 80, 20);
+		
+		etiquetaMonedas = new JLabel("Monedas: "+juego.getMonedas());
+		etiquetaMonedas.setBounds(240,0 , 80, 20);
+		
 		panelOpciones.add(botonAgregarEnemigo);
 		panelOpciones.add(botonAgregarPersonaje);
+		panelOpciones.add(etiquetaMonedas);
+		panelOpciones.add(etiquetaPuntos);
 	}
 	
 	private void inicializarPanelJuego()
@@ -112,6 +122,8 @@ public class GUI extends JFrame{
 				}
 			}
 		}
+		etiquetaPuntos.setText("Puntos: "+juego.getPuntos());
+		etiquetaMonedas.setText("Monedas: "+juego.getMonedas());
 	}
 	
 	public JPanel getPanelJuego()
@@ -147,6 +159,18 @@ public class GUI extends JFrame{
         			fabricado.setCelda(aux);
         			panelJuego.add(fabricado.getGrafico());
         			fabricado=null;
+        		}
+        	}
+        	else
+        	{
+        		Celda aux = mapa.getCelda(i, j);
+        		if(aux.ocupado(1))
+        		{
+        			Iterator<Contenido> it = aux.getContenido();
+        			while(it.hasNext())
+        			{
+        				it.next().destruir();
+        			}
         		}
         	}
         }

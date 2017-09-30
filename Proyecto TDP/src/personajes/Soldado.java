@@ -4,7 +4,7 @@ import javax.swing.JLabel;
 
 import mapa.*;
 
-public class Soldado extends Personajes{
+public class Soldado extends Personaje{
 
 	public Soldado(Celda c)
 	{

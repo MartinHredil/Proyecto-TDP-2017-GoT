@@ -73,7 +73,7 @@ public class Celda {
 		return c.iterator();		
 	}
 	
-	public Celda getDerecha()
+	public Celda getIzquierda()
 	{
 		Celda toReturn = null;
 		if(columna-1>=0)

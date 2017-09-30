@@ -50,10 +50,5 @@ public abstract class Contenido {
 		miCelda = c;
 	}
 	
-	public void destruir()
-	{
-		grafico.setIcon(null);
-		miCelda.quitar(posicion);
-		miCelda = null;
-	}
+	public abstract void destruir();
 }
