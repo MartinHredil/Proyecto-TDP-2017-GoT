@@ -1,0 +1,24 @@
+package disparos;
+import mapa.*;
+
+public abstract class DisparoPersonaje extends Contenido {
+
+	public DisparoPersonaje(Celda c)
+	{
+		super(c);
+	}
+	
+	public void mover()
+	{
+		if(miCelda.getColumna()==0)
+		{
+			destruir();
+		}
+		else
+		{
+			miCelda.quitar(posicion);
+			miCelda = miCelda.getIzquierda();
+			miCelda.agregar(this);
+		}
+	}
+}

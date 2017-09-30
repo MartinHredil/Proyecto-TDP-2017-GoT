@@ -1,0 +1,11 @@
+package visitor;
+
+public interface Visitor {
+
+	public boolean visitarEnemigo();
+	public boolean visitarPersonaje();
+	public boolean visitarObjeto();
+	public boolean visitarPowerUp();
+	public boolean visitarDisparoEnemigo();
+	public boolean visitarDisparoPersonaje();
+}

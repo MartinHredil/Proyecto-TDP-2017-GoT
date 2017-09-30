@@ -15,18 +15,5 @@ public class Muerto extends Enemigo {
 		puntos = 500;
 	}
 	
-	public void mover()
-	{
-		if(miCelda.getColumna()==0)
-		{
-			//TERMINAR JUEGO
-		}
-		else
-		{
-			miCelda.quitar(posicion);
-			miCelda = miCelda.getIzquierda();
-			miCelda.agregar(this);
-		}
-	}
 	
 }

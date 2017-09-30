@@ -1,9 +1,6 @@
 package mapa;
 import java.util.Iterator;
 import herramientas.*;
-import objetos.Objeto;
-import enemigos.*;
-import personajes.*;
 
 
 public class Celda {
@@ -78,6 +75,14 @@ public class Celda {
 		Celda toReturn = null;
 		if(columna-1>=0)
 			toReturn = mapa.getCelda(fila, columna-1);
+		return toReturn;
+	}
+	
+	public Celda getDerecha()
+	{
+		Celda toReturn = null;
+		if(columna+1<mapa.getJuego().getColumnas())
+			toReturn = mapa.getCelda(fila, columna+1);
 		return toReturn;
 	}
 	

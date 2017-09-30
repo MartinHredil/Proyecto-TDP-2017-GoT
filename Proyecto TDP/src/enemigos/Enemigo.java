@@ -1,12 +1,14 @@
 package enemigos;
 import juego.Juego;
 import mapa.*;
+import visitor.*;
 
 public abstract class Enemigo extends Contenido {
 
 	protected int danioAtaque;
 	protected int puntos;
 	protected int monedas;
+	protected Visitor miVisitor;
 	
 	public Enemigo(Celda c)
 	{
@@ -15,6 +17,7 @@ public abstract class Enemigo extends Contenido {
 		puntos = 0;
 		monedas = 0;
 		posicion = 1;
+		miVisitor = new VisitorEnemigo(this);
 	}
 	
 	public int getDanioAtaque()
@@ -25,6 +28,11 @@ public abstract class Enemigo extends Contenido {
 	public void setDanioAtaque(int d)
 	{
 		danioAtaque = d;
+	}
+	
+	public void decrementarVida(int n)
+	{
+		vida-=n;
 	}
 	
 	public void destruir()
@@ -38,6 +46,18 @@ public abstract class Enemigo extends Contenido {
 		miCelda = null;
 	}
 	
-	public abstract void mover();
+	public void mover()
+	{
+		if(miCelda.getColumna()==0)
+		{
+			//TERMINAR JUEGO
+		}
+		else
+		{
+			miCelda.quitar(posicion);
+			miCelda = miCelda.getIzquierda();
+			miCelda.agregar(this);
+		}
+	}
 	
 }

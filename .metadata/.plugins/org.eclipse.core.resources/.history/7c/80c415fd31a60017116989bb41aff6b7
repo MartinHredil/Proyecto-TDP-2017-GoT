@@ -1,0 +1,24 @@
+package herramientas;
+import mapa.Contenido;
+import enemigos.*;
+import personajes.*;
+
+public class Director {
+
+	public Contenido crearEnemigo(int o)
+	{
+		Contenido toReturn = null;
+		if(o==1)
+			toReturn = new Muerto(null);
+		return toReturn;
+	}
+	
+	public Contenido crearPersonaje(int o)
+	{
+		Contenido toReturn = null;
+		if(o==1)
+			toReturn = new Soldado(null);
+		return toReturn;
+	}
+	
+}

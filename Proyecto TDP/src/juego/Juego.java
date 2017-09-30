@@ -5,6 +5,7 @@ import niveles.*;
 import objetos.*;
 import enemigos.*;
 import herramientas.*;
+import disparos.*;
 import java.util.Iterator;
 
 public class Juego {
@@ -18,8 +19,10 @@ public class Juego {
 	protected Coleccion<Enemigo> enemigos;
 	protected Coleccion<Personaje> personajes;
 	protected Coleccion<Objeto> objetos;
+	protected Coleccion<DisparoEnemigo> disparosenemigos;
+	protected Coleccion<DisparoPersonaje> disparospersonajes;
 	protected GUI gui;
-	protected Thread refresco, moverEnemigos;
+	protected Thread refresco, movimiento;
 	
 	public Juego()
 	{
@@ -32,6 +35,8 @@ public class Juego {
 		enemigos = new Coleccion<Enemigo>();
 		personajes = new Coleccion<Personaje>();
 		objetos = new Coleccion<Objeto>();
+		disparosenemigos = new Coleccion<DisparoEnemigo>();
+		disparospersonajes = new Coleccion<DisparoPersonaje>();
 		puntos=0;
 		monedas=0;
 		
@@ -61,6 +66,8 @@ public class Juego {
 		enemigos = new Coleccion<Enemigo>();
 		personajes = new Coleccion<Personaje>();
 		objetos = new Coleccion<Objeto>();
+		disparosenemigos = new Coleccion<DisparoEnemigo>();
+		disparospersonajes = new Coleccion<DisparoPersonaje>();
 		puntos=0;
 		monedas=0;
 		
@@ -77,6 +84,8 @@ public class Juego {
 		enemigos = new Coleccion<Enemigo>();
 		personajes = new Coleccion<Personaje>();
 		objetos = new Coleccion<Objeto>();
+		disparosenemigos = new Coleccion<DisparoEnemigo>();
+		disparospersonajes = new Coleccion<DisparoPersonaje>();
 		puntos=0;
 		monedas=0;
 		
@@ -92,6 +101,8 @@ public class Juego {
 		enemigos = new Coleccion<Enemigo>();
 		personajes = new Coleccion<Personaje>();
 		objetos = new Coleccion<Objeto>();
+		disparosenemigos = new Coleccion<DisparoEnemigo>();
+		disparospersonajes = new Coleccion<DisparoPersonaje>();
 		puntos=0;
 		monedas=0;
 		
@@ -128,6 +139,16 @@ public class Juego {
 		return enemigos.iterator();
 	}
 	
+	public Iterator<DisparoEnemigo> getDisparosEnemigos()
+	{
+		return disparosenemigos.iterator();
+	}
+	
+	public Iterator<DisparoPersonaje> getDisparosPersonajes()
+	{
+		return disparospersonajes.iterator();
+	}
+	
 	public GUI getGUI()
 	{
 		return gui;
@@ -148,6 +169,16 @@ public class Juego {
 		objetos.remove(o);
 	}
 	
+	public void eliminar(DisparoEnemigo de)
+	{
+		disparosenemigos.remove(de);
+	}
+	
+	public void eliminar(DisparoPersonaje dp)
+	{
+		disparospersonajes.remove(dp);
+	}
+	
 	public void incrementarMonedas(int m)
 	{
 		monedas+=m;
@@ -162,7 +193,7 @@ public class Juego {
 	{
 		gui = new GUI(this);
 		refrescar();
-		moverEnemigos();
+		movimiento();
 	}
 	
 	private void refrescar()
@@ -171,10 +202,10 @@ public class Juego {
 		refresco.start();
 	}
 	
-	private void moverEnemigos()
+	private void movimiento()
 	{
-		moverEnemigos = new MoverEnemigo(this);
-		moverEnemigos.start();
+		movimiento = new Movimiento(this);
+		movimiento.start();
 	}
 
 }

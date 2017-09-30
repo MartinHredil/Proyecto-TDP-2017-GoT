@@ -1,0 +1,10 @@
+package disparos;
+import mapa.*;
+
+public abstract class DisparoPersonaje extends Contenido {
+
+	public DisparoPersonaje(Celda c)
+	{
+		super(c);
+	}
+}

@@ -1,4 +1,5 @@
 package mapa;
+import visitor.Visitor;
 
 import javax.swing.JLabel;
 

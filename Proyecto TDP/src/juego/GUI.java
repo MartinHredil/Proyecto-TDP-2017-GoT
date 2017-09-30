@@ -10,6 +10,7 @@ import java.util.Iterator;
 import mapa.*;
 import enemigos.*;
 import personajes.*;
+import herramientas.*;
 
 public class GUI extends JFrame{
 
@@ -21,6 +22,7 @@ public class GUI extends JFrame{
 	protected Juego juego;
 	protected Mapa mapa;
 	protected Contenido fabricado;
+	protected Director director;
 	
 	protected JPanel panelOpciones;
 	protected JPanel panelJuego;
@@ -38,6 +40,7 @@ public class GUI extends JFrame{
 		alto = cantFilas * 80;
 		ancho = cantColumnas * 80;
 		fabricado = null;
+		director = new Director();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
@@ -61,25 +64,25 @@ public class GUI extends JFrame{
 		panelOpciones.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelOpciones.setBounds(0,0, ancho, 100);
 		
-		JButton botonAgregarEnemigo = new JButton();
-		botonAgregarEnemigo.setBounds(0, 0, 80, 80);
-		botonAgregarEnemigo.setIcon(new ImageIcon(this.getClass().getResource("/sources/Muerto.png")));
-		botonAgregarEnemigo.addActionListener(new OyenteAgregarEnemigo());
+		JButton botonAgregarMuerto = new JButton();
+		botonAgregarMuerto.setBounds(0, 0, 80, 80);
+		botonAgregarMuerto.setIcon(new ImageIcon(this.getClass().getResource("/sources/Muerto.png")));
+		botonAgregarMuerto.addActionListener(new OyenteAgregarEnemigo());
 		
 		
-		JButton botonAgregarPersonaje = new JButton();
-		botonAgregarPersonaje.setBounds(80, 0, 80, 80);
-		botonAgregarPersonaje.setIcon(new ImageIcon(this.getClass().getResource("/sources/Soldado.png")));
-		botonAgregarPersonaje.addActionListener(new OyenteAgregarPersonaje());
-		
+		JButton botonAgregarSoldado = new JButton();
+		botonAgregarSoldado.setBounds(80, 0, 80, 80);
+		botonAgregarSoldado.setIcon(new ImageIcon(this.getClass().getResource("/sources/Soldado.png")));
+		botonAgregarSoldado.addActionListener(new OyenteAgregarPersonaje());
+
 		etiquetaPuntos = new JLabel("Puntos: "+juego.getPuntos());
 		etiquetaPuntos.setBounds(160,0 , 80, 20);
 		
 		etiquetaMonedas = new JLabel("Monedas: "+juego.getMonedas());
 		etiquetaMonedas.setBounds(240,0 , 80, 20);
 		
-		panelOpciones.add(botonAgregarEnemigo);
-		panelOpciones.add(botonAgregarPersonaje);
+		panelOpciones.add(botonAgregarMuerto);
+		panelOpciones.add(botonAgregarSoldado);
 		panelOpciones.add(etiquetaMonedas);
 		panelOpciones.add(etiquetaPuntos);
 	}
@@ -134,14 +137,14 @@ public class GUI extends JFrame{
 	private class OyenteAgregarEnemigo implements ActionListener {
         public void actionPerformed(ActionEvent e)
         {
-            fabricado = new Muerto(null);
+            fabricado = director.crearEnemigo(1);
         }
     }
 	
 	private class OyenteAgregarPersonaje implements ActionListener {
         public void actionPerformed(ActionEvent e)
         {
-        	fabricado = new Soldado(null);
+        	fabricado = director.crearPersonaje(1);
         }
     }
 	

@@ -1,14 +1,17 @@
 package personajes;
 
 import mapa.*;
+import visitor.*;
 
 public abstract class Personaje extends Contenido {
 
 	protected int danioAtaque;
+	protected Visitor miVisitor;
 	
 	public Personaje(Celda c)
 	{
 		super(c);
+		miVisitor = new VisitorPersonaje(this);
 		posicion = 0;
 	}
 	
@@ -20,6 +23,11 @@ public abstract class Personaje extends Contenido {
 	public void setDanioAtaque(int d)
 	{
 		danioAtaque = d;
+	}
+	
+	public void decrementarVida(int n)
+	{
+		vida-=n;
 	}
 	
 	public void destruir()

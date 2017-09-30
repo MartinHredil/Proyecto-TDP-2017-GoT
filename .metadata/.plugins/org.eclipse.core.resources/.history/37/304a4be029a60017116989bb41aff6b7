@@ -1,0 +1,33 @@
+import java.util.Iterator;
+import enemigos.*;
+import disparos.*;
+
+public class Movimiento extends Thread {
+
+	protected Juego juego;
+	
+	public Movimiento(Juego j)
+	{
+		juego=j;
+	}
+	
+	public void run()
+	{
+		Iterator<Enemigo> it;
+		while(true)
+		{
+			it = juego.getEnemigos();
+			while(it.hasNext())
+			{
+				it.next().mover();
+			}
+			
+			try {
+				sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+}

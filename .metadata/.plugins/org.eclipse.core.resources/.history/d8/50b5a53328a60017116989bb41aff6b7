@@ -1,0 +1,46 @@
+package visitor;
+import enemigos.Enemigo;
+import personajes.Personaje;
+import objetos.Objeto;;
+
+
+public class VisitorEnemigo implements Visitor {
+
+	protected Enemigo enemigo;
+	
+	public VisitorEnemigo(Enemigo e)
+	{
+		enemigo = e;
+	}
+	
+	public boolean visitarEnemigo()
+	{
+		return false;
+	}
+	
+	public boolean visitarPersonaje()
+	{
+		return false;
+	}
+	
+	public boolean visitarObjeto()
+	{
+		return false;
+	}
+	
+	public boolean visitarPowerUp()
+	{
+		return false;
+	}
+	
+	public boolean visitarDisparoEnemigo()
+	{
+		return false;
+	}
+	
+	public boolean visitarDisparoPersonaje()
+	{
+		return false;
+	}
+	
+}

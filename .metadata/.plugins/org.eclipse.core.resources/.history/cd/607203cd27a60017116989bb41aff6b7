@@ -1,0 +1,5 @@
+package disparos;
+
+public abstract class DisparoEnemigo {
+
+}
