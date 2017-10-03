@@ -8,4 +8,5 @@
 <fullyQualifiedTypeName name="disparos.DisparoPersonaje"/>
 <fullyQualifiedTypeName name="visitor.Visitor"/>
 <fullyQualifiedTypeName name="mapa.Contenido"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
 </qualifiedTypeNameHistroy>

@@ -31,9 +31,9 @@ public class GUI extends JFrame{
 	protected JLabel etiquetaPuntos;
 	protected JLabel etiquetaMonedas;
 	
-	public GUI(Juego ju)
+	public GUI()
 	{
-		juego = ju;
+		juego = new Juego(this);
 		mapa = juego.getMapa();
 		cantFilas = juego.getFilas();
 		cantColumnas = juego.getColumnas();

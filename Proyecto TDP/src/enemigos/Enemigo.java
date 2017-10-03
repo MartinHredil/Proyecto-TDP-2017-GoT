@@ -1,4 +1,6 @@
 package enemigos;
+import java.util.Iterator;
+
 import juego.Juego;
 import mapa.*;
 import visitor.*;
@@ -54,10 +56,29 @@ public abstract class Enemigo extends Contenido {
 		}
 		else
 		{
-			miCelda.quitar(posicion);
-			miCelda = miCelda.getIzquierda();
-			miCelda.agregar(this);
+			Celda sig = miCelda.getIzquierda();
+			Iterator<Contenido> it = sig.getContenido();
+			boolean mover = true;
+			while(it.hasNext())
+			{
+				if(it.next().aceptar(miVisitor))
+				{
+					mover = false;
+				}
+			}
+			
+			if(mover)
+			{
+				miCelda.quitar(posicion);
+				miCelda = miCelda.getIzquierda();
+				miCelda.agregar(this);
+			}
 		}
+	}
+	
+	public boolean aceptar(Visitor v)
+	{
+		return v.visitarEnemigo(this);
 	}
 	
 }

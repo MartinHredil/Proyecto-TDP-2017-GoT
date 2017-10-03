@@ -15,5 +15,4 @@ public class Muerto extends Enemigo {
 		puntos = 500;
 	}
 	
-	
 }

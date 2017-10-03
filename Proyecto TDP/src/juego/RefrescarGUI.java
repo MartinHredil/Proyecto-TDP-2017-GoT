@@ -2,6 +2,7 @@ package juego;
 
 public class RefrescarGUI extends Thread{
 
+	protected volatile boolean execute;
 	protected GUI gui;
 	
 	public RefrescarGUI(GUI g)
@@ -9,9 +10,15 @@ public class RefrescarGUI extends Thread{
 		gui = g;
 	}
 	
+	public void terminate()
+	{
+		execute = false;
+	}
+	
 	public void run()
 	{
-		while(true)
+		execute = true;
+		while(execute)
 		{
 			try {
 				sleep(100);

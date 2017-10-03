@@ -41,12 +41,12 @@ public class VisitorPersonaje implements Visitor {
 	
 	public boolean visitarDisparoEnemigo(DisparoEnemigo de)
 	{
-		return true;
+		return false;
 	}
 	
 	public boolean visitarDisparoPersonaje(DisparoPersonaje dp)
 	{
-		return true;
+		return false;
 	}
 	
 }

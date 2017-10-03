@@ -52,4 +52,5 @@ public abstract class Contenido {
 	}
 	
 	public abstract void destruir();
+	public abstract boolean aceptar(Visitor v);
 }

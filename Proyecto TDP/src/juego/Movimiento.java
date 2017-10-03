@@ -5,6 +5,8 @@ import disparos.*;
 
 public class Movimiento extends Thread {
 
+	protected volatile boolean execute;
+	
 	protected Juego juego;
 	
 	public Movimiento(Juego j)
@@ -12,13 +14,19 @@ public class Movimiento extends Thread {
 		juego=j;
 	}
 	
+	public void terminate()
+	{
+		execute = false;
+	}
+	
 	public void run()
 	{
+		this.execute = true;
 		Iterator<Enemigo> it1;
 		Iterator<DisparoEnemigo> it2;
 		Iterator<DisparoPersonaje> it3;
 		
-		while(true)
+		while(execute)
 		{
 			it1 = juego.getEnemigos();
 			while(it1.hasNext())

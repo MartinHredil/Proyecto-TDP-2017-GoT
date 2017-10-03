@@ -24,8 +24,9 @@ public class Juego {
 	protected GUI gui;
 	protected Thread refresco, movimiento;
 	
-	public Juego()
+	public Juego(GUI g)
 	{
+		gui = g;
 		mapa = new Mapa(6,10,this);
 		
 		//nivel = new Nivel1();
@@ -51,12 +52,14 @@ public class Juego {
 		
 		//FIN PRUEBA
 		
-		iniciarGUI();
+		refrescar();
+		movimiento();
 		
 	}
 	
-	public Juego(int f, int c)
+	public Juego(GUI g,int f, int c)
 	{
+		gui = g;
 		mapa = new Mapa(f,c,this);
 		
 		//nivel = new Nivel1();
@@ -71,12 +74,14 @@ public class Juego {
 		puntos=0;
 		monedas=0;
 		
-		iniciarGUI();
+		refrescar();
+		movimiento();
 		
 	}
 	
-	public Juego(Nivel n)
+	public Juego(GUI g,Nivel n)
 	{
+		gui = g;
 		mapa = new Mapa(6,10,this);
 		nivel = n;
 		cantFilas=6;
@@ -89,11 +94,13 @@ public class Juego {
 		puntos=0;
 		monedas=0;
 		
-		iniciarGUI();
+		refrescar();
+		movimiento();
 	}
 	
-	public Juego(int f, int c, Nivel n)
+	public Juego(GUI g, int f, int c, Nivel n)
 	{
+		gui = g;
 		mapa = new Mapa(f,c,this);
 		nivel = n;
 		cantFilas=f;
@@ -106,7 +113,8 @@ public class Juego {
 		puntos=0;
 		monedas=0;
 		
-		iniciarGUI();
+		refrescar();
+		movimiento();
 	}
 	
 	public int getFilas()
@@ -148,11 +156,6 @@ public class Juego {
 	{
 		return disparospersonajes.iterator();
 	}
-	
-	public GUI getGUI()
-	{
-		return gui;
-	}
 
 	public void eliminar(Enemigo e)
 	{
@@ -187,13 +190,6 @@ public class Juego {
 	public void incrementarPuntos(int p)
 	{
 		puntos+=p;
-	}
-	
-	private void iniciarGUI()
-	{
-		gui = new GUI(this);
-		refrescar();
-		movimiento();
 	}
 	
 	private void refrescar()

@@ -37,4 +37,9 @@ public abstract class Personaje extends Contenido {
 		miCelda.getMapa().getJuego().eliminar(this);
 		miCelda = null;
 	}
+	
+	public boolean aceptar(Visitor v)
+	{
+		return v.visitarPersonaje(this);
+	}
 }
