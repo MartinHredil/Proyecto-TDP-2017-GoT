@@ -40,11 +40,6 @@ public abstract class Contenido {
 		miCelda = c;
 	}
 	
-	public void decrementarVida(int n)
-	{
-		vida-=n;
-	}
-	
 	public abstract void destruir();
 	public abstract boolean aceptar(Visitor v);
 }

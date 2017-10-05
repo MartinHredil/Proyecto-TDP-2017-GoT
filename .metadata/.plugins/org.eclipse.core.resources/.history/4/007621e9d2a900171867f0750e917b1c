@@ -58,7 +58,7 @@ public abstract class Enemigo extends Contenido {
 			if(mover)
 			{
 				miCelda.quitar(posicion);
-				miCelda = sig;
+				miCelda = miCelda.getIzquierda();
 				miCelda.agregar(this);
 			}
 		}

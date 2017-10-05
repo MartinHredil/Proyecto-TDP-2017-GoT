@@ -25,6 +25,11 @@ public abstract class Personaje extends Contenido {
 		danioAtaque = d;
 	}
 	
+	public void decrementarVida(int n)
+	{
+		vida-=n;
+	}
+	
 	public void destruir()
 	{
 		grafico.setIcon(null);

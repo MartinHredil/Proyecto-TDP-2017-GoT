@@ -12,7 +12,10 @@ public class Juego {
 
 	protected Nivel nivel;
 	protected Mapa mapa;
-	protected int cantFilas, cantColumnas, puntos, monedas;
+	protected int cantFilas;
+	protected int cantColumnas;
+	protected int puntos;
+	protected int monedas;
 	protected Coleccion<Enemigo> enemigos;
 	protected Coleccion<Personaje> personajes;
 	protected Coleccion<Objeto> objetos;

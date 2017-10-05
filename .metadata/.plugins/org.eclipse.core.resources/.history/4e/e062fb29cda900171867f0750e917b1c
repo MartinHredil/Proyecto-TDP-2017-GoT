@@ -25,6 +25,11 @@ public abstract class Contenido {
 		return vida;
 	}
 	
+	public void setVida(int v)
+	{
+		vida = v;
+	}
+	
 	public JLabel getGrafico()
 	{
 		return grafico;
@@ -35,14 +40,9 @@ public abstract class Contenido {
 		return posicion;
 	}
 	
-	public void setCelda(Celda c)
+	public void setPosicion(int p)
 	{
-		miCelda = c;
-	}
-	
-	public void decrementarVida(int n)
-	{
-		vida-=n;
+		posicion = p;
 	}
 	
 	public abstract void destruir();

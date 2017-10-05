@@ -6,8 +6,9 @@ import javax.swing.JLabel;
 public abstract class Contenido {
 	
 	protected Celda miCelda;
-	protected int vida, posicion;
+	protected int vida;
 	protected JLabel grafico;
+	protected int posicion;
 	
 	public Contenido(Celda c)
 	{
@@ -25,6 +26,11 @@ public abstract class Contenido {
 		return vida;
 	}
 	
+	public void setVida(int v)
+	{
+		vida = v;
+	}
+	
 	public JLabel getGrafico()
 	{
 		return grafico;
@@ -35,14 +41,14 @@ public abstract class Contenido {
 		return posicion;
 	}
 	
+	public void setPosicion(int p)
+	{
+		posicion = p;
+	}
+	
 	public void setCelda(Celda c)
 	{
 		miCelda = c;
-	}
-	
-	public void decrementarVida(int n)
-	{
-		vida-=n;
 	}
 	
 	public abstract void destruir();

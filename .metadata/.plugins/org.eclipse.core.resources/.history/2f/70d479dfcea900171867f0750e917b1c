@@ -31,7 +31,7 @@ public class VisitorEnemigo implements Visitor {
 	
 	public boolean visitarObjeto(Objeto p)
 	{
-		return true;
+		return false;
 	}
 	
 	public boolean visitarPowerUp(PowerUp pw)
