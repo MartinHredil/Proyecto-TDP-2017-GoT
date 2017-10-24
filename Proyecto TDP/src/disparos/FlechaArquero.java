@@ -5,11 +5,25 @@ import mapa.*;
 
 public class FlechaArquero extends DisparoPersonaje{
 	
+	protected Moverme moverme;
+	
 	public FlechaArquero(Celda c)
 	{
 		super(c);
 		grafico = new JLabel();
-		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Muerto.png")));
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Flecha.png")));
+		miCelda.getMapa().getJuego().agregarGrafico(grafico);
+		moverme = new Moverme(this);
+		moverme.start();
+	}
+	
+	public void destruir()
+	{
+		moverme.terminate();
+		grafico.setIcon(null);
+		miCelda.quitar(posicion);
+		miCelda.getMapa().getJuego().eliminar(this);
+		miCelda = null;
 	}
 
 }

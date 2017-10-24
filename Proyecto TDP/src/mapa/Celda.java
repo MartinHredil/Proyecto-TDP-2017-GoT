@@ -15,11 +15,12 @@ public class Celda {
 		mapa = m;
 		fila = f;
 		columna = c;
-		misContenidos = new Contenido[4]; 
+		misContenidos = new Contenido[5]; 
 		misContenidos[0]=null;
 		misContenidos[1]=null;
 		misContenidos[2]=null;
 		misContenidos[3]=null;
+		misContenidos[4]=null;
 	}
 	
 	public int getFila()
@@ -66,6 +67,8 @@ public class Celda {
 		c.add(misContenidos[2]);
 		if(misContenidos[3]!=null)
 		c.add(misContenidos[3]);
+		if(misContenidos[4]!=null)
+		c.add(misContenidos[4]);
 		
 		return c.iterator();		
 	}

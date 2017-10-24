@@ -125,6 +125,8 @@ public class GUI extends JFrame{
 				{
 					etiqueta = it.next().getGrafico();
 					etiqueta.setBounds(j,i*80,80,80);
+					//panelJuego.add(etiqueta);
+					//etiqueta.repaint();
 				}
 			}
 		}
@@ -135,6 +137,11 @@ public class GUI extends JFrame{
 	public JPanel getPanelJuego()
 	{
 		return panelJuego;
+	}
+	
+	public void agregar(JLabel j)
+	{
+		panelJuego.add(j);
 	}
 	
 	private class OyenteAgregarEnemigo implements ActionListener {

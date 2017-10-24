@@ -21,12 +21,13 @@ public class RefrescarGUI extends Thread{
 		while(execute)
 		{
 			try {
-				sleep(20);
+				sleep(10);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			gui.refrescar();
+			gui.repaint();
 		}
 	}
 }

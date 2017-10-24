@@ -8,6 +8,8 @@ import herramientas.*;
 import disparos.*;
 import java.util.Iterator;
 
+import javax.swing.JLabel;
+
 public class Juego {
 
 	protected Nivel nivel;
@@ -19,7 +21,7 @@ public class Juego {
 	protected Coleccion<DisparoEnemigo> disparosenemigos;
 	protected Coleccion<DisparoPersonaje> disparospersonajes;
 	protected GUI gui;
-	protected Thread refresco, movimiento;
+	protected Thread refresco, movimiento,movimientoDispPer;
 	
 	public Juego(GUI g)
 	{
@@ -47,6 +49,9 @@ public class Juego {
 		Personaje prueba2= new Arquero(mapa.getCelda(0, 0));
 		mapa.getCelda(0,0).agregar(prueba2);
 		
+		Personaje prueba7= new Arquero(mapa.getCelda(0, 80));
+		mapa.getCelda(0,80).agregar(prueba7);
+		
 		/*DisparoPersonaje prueba3 = new FlechaArquero(mapa.getCelda(0, 80));
 		mapa.getCelda(0, 80).agregar(prueba3);
 		disparospersonajes.add(prueba3);
@@ -54,6 +59,13 @@ public class Juego {
 		DisparoPersonaje prueba4 = new FlechaArquero(mapa.getCelda(0, 160));
 		mapa.getCelda(0, 160).agregar(prueba4);
 		disparospersonajes.add(prueba4);*/
+		
+		Personaje prueba5= new Soldado(mapa.getCelda(1, 0));
+		mapa.getCelda(1,0).agregar(prueba5);
+		
+		Enemigo prueba6=new Muerto(mapa.getCelda(1,600));
+		enemigos.add(prueba6);
+		mapa.getCelda(1,600).agregar(prueba6);
 		
 		//FIN PRUEBA
 		
@@ -203,6 +215,11 @@ public class Juego {
 		puntos+=p;
 	}
 	
+	public void agregarGrafico(JLabel j)
+	{
+		gui.agregar(j);
+	}
+	
 	private void refrescar()
 	{
 		refresco = new RefrescarGUI(gui);
@@ -213,6 +230,8 @@ public class Juego {
 	{
 		movimiento = new Movimiento(this);
 		movimiento.start();
+		movimientoDispPer = new MovimientoDispPer(this);
+		movimientoDispPer.start();
 	}
 
 }

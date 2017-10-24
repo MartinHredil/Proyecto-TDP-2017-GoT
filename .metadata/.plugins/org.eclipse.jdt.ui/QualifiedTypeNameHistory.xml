@@ -9,6 +9,8 @@
 <fullyQualifiedTypeName name="mapa.Contenido"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="personajes.Arquero"/>
-<fullyQualifiedTypeName name="disparos.DisparoPersonaje"/>
 <fullyQualifiedTypeName name="juego.GenerarFlechas"/>
+<fullyQualifiedTypeName name="disparos.DisparoPersonaje"/>
+<fullyQualifiedTypeName name="herramientas.Director"/>
+<fullyQualifiedTypeName name="javax.swing.JLabel"/>
 </qualifiedTypeNameHistroy>

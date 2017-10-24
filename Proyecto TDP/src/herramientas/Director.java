@@ -1,5 +1,6 @@
 package herramientas;
 import mapa.Contenido;
+import disparos.*;
 import enemigos.*;
 import personajes.*;
 
@@ -23,4 +24,8 @@ public class Director {
 		return toReturn;
 	}
 	
+	public DisparoPersonaje crearFlecha()
+	{
+		return (new FlechaArquero(null));
+	}
 }
