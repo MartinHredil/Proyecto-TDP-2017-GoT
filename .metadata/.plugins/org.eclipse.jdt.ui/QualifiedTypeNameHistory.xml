@@ -5,8 +5,10 @@
 <fullyQualifiedTypeName name="objetos.Objeto"/>
 <fullyQualifiedTypeName name="powerups.PowerUp"/>
 <fullyQualifiedTypeName name="disparos.DisparoEnemigo"/>
-<fullyQualifiedTypeName name="disparos.DisparoPersonaje"/>
 <fullyQualifiedTypeName name="visitor.Visitor"/>
 <fullyQualifiedTypeName name="mapa.Contenido"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="personajes.Arquero"/>
+<fullyQualifiedTypeName name="disparos.DisparoPersonaje"/>
+<fullyQualifiedTypeName name="juego.GenerarFlechas"/>
 </qualifiedTypeNameHistroy>

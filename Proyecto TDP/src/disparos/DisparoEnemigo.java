@@ -1,5 +1,6 @@
 package disparos;
 import mapa.*;
+import visitor.Visitor;
 
 public abstract class DisparoEnemigo extends Contenido {
 
@@ -28,5 +29,10 @@ public abstract class DisparoEnemigo extends Contenido {
 		miCelda.quitar(posicion);
 		miCelda.getMapa().getJuego().eliminar(this);
 		miCelda = null;
+	}
+	
+	public boolean aceptar(Visitor v)
+	{
+		return v.visitarDisparoEnemigo(this);
 	}
 }

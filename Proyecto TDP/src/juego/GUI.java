@@ -38,7 +38,10 @@ public class GUI extends JFrame{
 		cantFilas = juego.getFilas();
 		cantColumnas = juego.getColumnas();
 		alto = cantFilas * 80;
-		ancho = cantColumnas * 80;
+		
+		ancho = cantColumnas;
+		//ancho = cantColumnas * 80;
+		
 		fabricado = null;
 		director = new Director();
 		
@@ -102,7 +105,7 @@ public class GUI extends JFrame{
 				while(it.hasNext())
 				{
 					etiqueta = it.next().getGrafico();
-					etiqueta.setBounds(j*80,i*80,80,80);
+					etiqueta.setBounds(j,i*80,80,80);
 					panelJuego.add(etiqueta);
 				}
 			}
@@ -121,7 +124,7 @@ public class GUI extends JFrame{
 				while(it.hasNext())
 				{
 					etiqueta = it.next().getGrafico();
-					etiqueta.setBounds(j*80,i*80,80,80);
+					etiqueta.setBounds(j,i*80,80,80);
 				}
 			}
 		}
@@ -152,7 +155,9 @@ public class GUI extends JFrame{
         public void mousePressed(MouseEvent e)
         {
         	int i = e.getY() / 80;
-        	int j = e.getX() / 80;
+        	
+        	//int j = e.getX() / 80;
+        	int j = e.getX();
         	if(fabricado!=null)
         	{
         		Celda aux = mapa.getCelda(i, j);

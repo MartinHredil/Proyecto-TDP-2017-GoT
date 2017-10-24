@@ -19,7 +19,11 @@ public class Mapa {
 	
 	public Celda getCelda(int f, int c)
 	{
-		return celdas[f][c];
+		Celda toReturn = null;
+		if(f>=0 && f<celdas.length)
+			if(c>=0 && c<celdas[0].length)
+				toReturn = celdas[f][c];
+		return toReturn;
 	}
 	
 	public Juego getJuego()

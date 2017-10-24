@@ -1,0 +1,76 @@
+package disparos;
+import java.util.Iterator;
+
+import mapa.*;
+import visitor.Visitor;
+
+public abstract class DisparoPersonaje extends Contenido {
+
+	public DisparoPersonaje(Celda c)
+	{
+		super(c);
+	}
+	
+	public void mover()
+	{
+		if(miCelda.getColumna()==(miCelda.getMapa().getJuego().getColumnas()-1))
+		{
+			destruir();
+		}
+		else
+		{
+			boolean mover = true;
+			Celda sig = miCelda.getIzquierda();
+			int cont = 0;
+			
+			if(sig==null)
+			{
+				//TERMINAR JUEGO
+			}
+			else
+			{
+				while(cont<80 && mover)
+				{
+					cont++;
+					sig = miCelda.getMapa().getCelda(miCelda.getFila(), miCelda.getColumna()-cont);
+					if(sig!=null)
+					{
+						Iterator<Contenido> it = sig.getContenido();
+						while(it.hasNext())
+						{
+							if(it.next().aceptar(miVisitor))
+							{
+								mover = false;
+							}
+						}
+					}
+				}
+				
+				if(mover)
+				{
+					miCelda.quitar(posicion);
+					miCelda = miCelda.getIzquierda();
+					miCelda.agregar(this);
+				}
+			}
+			
+			/*miCelda.quitar(posicion);
+			miCelda = miCelda.getDerecha();
+			miCelda.agregar(this);
+			*/
+		}
+	}
+	
+	public void destruir()
+	{
+		grafico.setIcon(null);
+		miCelda.quitar(posicion);
+		miCelda.getMapa().getJuego().eliminar(this);
+		miCelda = null;
+	}
+	
+	public boolean aceptar(Visitor v)
+	{
+		return v.visitarDisparoPersonaje(this);
+	}
+}

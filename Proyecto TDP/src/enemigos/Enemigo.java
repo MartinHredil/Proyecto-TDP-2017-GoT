@@ -38,27 +38,37 @@ public abstract class Enemigo extends Contenido {
 	
 	public void mover()
 	{
+		boolean mover = true;
 		Celda sig = miCelda.getIzquierda();
+		int cont = 0;
+		
 		if(sig==null)
 		{
 			//TERMINAR JUEGO
 		}
 		else
 		{
-			Iterator<Contenido> it = sig.getContenido();
-			boolean mover = true;
-			while(it.hasNext())
+			while(cont<80 && mover)
 			{
-				if(it.next().aceptar(miVisitor))
+				cont++;
+				sig = miCelda.getMapa().getCelda(miCelda.getFila(), miCelda.getColumna()-cont);
+				if(sig!=null)
 				{
-					mover = false;
+					Iterator<Contenido> it = sig.getContenido();
+					while(it.hasNext())
+					{
+						if(it.next().aceptar(miVisitor))
+						{
+							mover = false;
+						}
+					}
 				}
 			}
 			
 			if(mover)
 			{
 				miCelda.quitar(posicion);
-				miCelda = sig;
+				miCelda = miCelda.getIzquierda();
 				miCelda.agregar(this);
 			}
 		}

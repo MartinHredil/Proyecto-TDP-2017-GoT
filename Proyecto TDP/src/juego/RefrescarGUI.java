@@ -21,7 +21,7 @@ public class RefrescarGUI extends Thread{
 		while(execute)
 		{
 			try {
-				sleep(100);
+				sleep(20);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
