@@ -6,12 +6,10 @@ import visitor.*;
 public abstract class Personaje extends Contenido {
 
 	protected int danioAtaque;
-	protected Visitor miVisitor;
 	
 	public Personaje(Celda c)
 	{
 		super(c);
-		miVisitor = new VisitorPersonaje(this);
 		posicion = 0;
 	}
 	
@@ -27,10 +25,7 @@ public abstract class Personaje extends Contenido {
 	
 	public void destruir()
 	{
-		grafico.setIcon(null);
-		miCelda.quitar(posicion);
-		miCelda.getMapa().getJuego().eliminar(this);
-		miCelda = null;
+		super.destruir();
 	}
 	
 	public boolean aceptar(Visitor v)

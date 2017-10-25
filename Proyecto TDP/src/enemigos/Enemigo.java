@@ -1,13 +1,13 @@
 package enemigos;
 import java.util.Iterator;
-
 import juego.Juego;
 import mapa.*;
 import visitor.*;
 
 public abstract class Enemigo extends Contenido {
 
-	protected int danioAtaque, puntos, monedas;
+	protected MoverEnemigo moverme;
+	protected int danioAtaque, puntos, monedas,velocidad;
 	protected Visitor miVisitor;
 	
 	public Enemigo(Celda c)
@@ -20,6 +20,11 @@ public abstract class Enemigo extends Contenido {
 		miVisitor = new VisitorEnemigo(this);
 	}
 	
+	public int getVelocidad()
+	{
+		return velocidad;
+	}
+	
 	public int getDanioAtaque()
 	{
 		return danioAtaque;
@@ -27,13 +32,11 @@ public abstract class Enemigo extends Contenido {
 	
 	public void destruir()
 	{
-		grafico.setIcon(null);
-		miCelda.quitar(posicion);
+		moverme.terminate();
 		Juego j = miCelda.getMapa().getJuego();
 		j.incrementarMonedas(monedas);
 		j.incrementarPuntos(puntos);
-		j.eliminar(this);
-		miCelda = null;
+		super.destruir();
 	}
 	
 	public void mover()
@@ -44,7 +47,7 @@ public abstract class Enemigo extends Contenido {
 		
 		if(sig==null)
 		{
-			//TERMINAR JUEGO
+			miCelda.getMapa().getJuego().terminarJuego(false);
 		}
 		else
 		{

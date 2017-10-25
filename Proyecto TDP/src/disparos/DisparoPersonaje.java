@@ -7,7 +7,8 @@ import visitor.VisitorDisparoPersonaje;
 
 public abstract class DisparoPersonaje extends Contenido {
 
-	protected int danioAtaque;
+	protected MoverDisparoPersonaje moverme;
+	protected int danioAtaque, velocidad;
 	protected Visitor miVisitor;
 	
 	public DisparoPersonaje(Celda c)
@@ -16,6 +17,11 @@ public abstract class DisparoPersonaje extends Contenido {
 		danioAtaque = 0;
 		posicion = 2;
 		miVisitor = new VisitorDisparoPersonaje(this);
+	}
+	
+	public int getVelocidad()
+	{
+		return velocidad;
 	}
 	
 	public int getDanioAtaque()
@@ -63,6 +69,12 @@ public abstract class DisparoPersonaje extends Contenido {
 		{
 			destruir();
 		}
+	}
+	
+	public void destruir()
+	{
+		moverme.terminate();
+		super.destruir();
 	}
 	
 	public boolean aceptar(Visitor v)

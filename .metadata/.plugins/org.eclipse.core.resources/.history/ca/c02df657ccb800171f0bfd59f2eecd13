@@ -1,0 +1,11 @@
+package powerups;
+
+import mapa.Celda;
+
+public class PlusVida extends PowerUp {
+
+	public PlusVida(Celda c)
+	{
+		super(c);
+	}
+}

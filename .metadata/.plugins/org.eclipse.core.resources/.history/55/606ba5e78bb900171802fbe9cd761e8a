@@ -1,0 +1,17 @@
+package juego;
+
+public class TEST {
+	
+	protected static GUI g;
+
+	public static void main(String[] args) {
+		
+		g = new GUI();
+	}
+	
+	public void terminar()
+	{
+		g = new GUI();
+	}
+
+}

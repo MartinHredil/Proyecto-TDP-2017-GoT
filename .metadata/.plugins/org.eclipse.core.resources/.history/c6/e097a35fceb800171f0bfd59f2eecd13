@@ -1,0 +1,31 @@
+package personajes;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+import mapa.*;
+
+public class Soldado extends Personaje{
+
+	protected Visitar visitar;
+	
+	public Soldado(Celda c)
+	{
+		super(c);
+		grafico = new JLabel();
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Soldado.png")));
+		visitar = new Visitar(this);
+	}
+	
+	public void destruir()
+	{
+		visitar.terminate();
+		super.destruir();
+	}
+	
+	public void visitar()
+	{
+		
+	}
+	
+	
+}

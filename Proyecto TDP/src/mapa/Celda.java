@@ -15,12 +15,20 @@ public class Celda {
 		mapa = m;
 		fila = f;
 		columna = c;
-		misContenidos = new Contenido[5]; 
+		misContenidos = new Contenido[6];
+		
+		//Personajes
 		misContenidos[0]=null;
+		//Enemigos
 		misContenidos[1]=null;
+		//DisparosPersonajes
 		misContenidos[2]=null;
+		//DisparosEnemigos
 		misContenidos[3]=null;
+		//Objetos
 		misContenidos[4]=null;
+		//PowerUp
+		misContenidos[5]=null;
 	}
 	
 	public int getFila()
@@ -43,18 +51,6 @@ public class Celda {
 		return !(misContenidos[p]==null);
 	}
 	
-	/*public boolean ocupado()
-	{
-		boolean toReturn = true;
-		int cont = 0;
-		while(toReturn && cont<misContenidos.length)
-		{
-			toReturn = misContenidos[cont] == null;
-		}
-		
-		return !toReturn;
-	}*/
-	
 	public Iterator<Contenido> getContenido()
 	{
 		Coleccion<Contenido> c = new Coleccion<Contenido>();
@@ -69,6 +65,8 @@ public class Celda {
 		c.add(misContenidos[3]);
 		if(misContenidos[4]!=null)
 		c.add(misContenidos[4]);
+		if(misContenidos[5]!=null)
+			c.add(misContenidos[4]);
 		
 		return c.iterator();		
 	}

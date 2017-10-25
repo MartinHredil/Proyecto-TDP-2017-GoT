@@ -26,6 +26,15 @@ public class VisitorEnemigo implements Visitor {
 		p.decrementarVida(enemigo.getDanioAtaque());
 		if(p.getVida()<=0)
 			p.destruir();
+		else
+		{
+			enemigo.decrementarVida(p.getDanioAtaque());
+			if(enemigo.getVida()<=0)
+			{
+				enemigo.destruir();
+			}
+		}
+		
 		return true;
 	}
 	
@@ -36,6 +45,7 @@ public class VisitorEnemigo implements Visitor {
 	
 	public boolean visitarPowerUp(PowerUp pw)
 	{
+		pw.destruir();
 		return false;
 	}
 	

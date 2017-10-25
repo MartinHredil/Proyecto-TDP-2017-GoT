@@ -1,0 +1,36 @@
+package personajes;
+
+public class Visitar extends Thread {
+
+	protected volatile boolean execute;
+	
+	protected Personaje personaje;
+	
+	public Visitar(Personaje p)
+	{
+		personaje = p;
+	}
+	
+	public void terminate()
+	{
+		execute = false;
+	}
+	
+	public void run()
+	{
+		this.execute = true;
+		
+		while(execute)
+		{
+			personaje.visitar();
+			
+			try {
+				sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+	}
+}

@@ -1,0 +1,26 @@
+package personajes;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+import mapa.Celda;
+
+public class Dragon extends Personaje {
+	
+	public Dragon(Celda c)
+	{
+		super(c);
+		grafico = new JLabel();
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Arquero.png")));
+		//GENERAR BOLA DE FUEGO
+	}
+	
+	public void destruir()
+	{
+		//TERMINAR HILO
+		grafico.setIcon(null);
+		miCelda.quitar(posicion);
+		miCelda.getMapa().getJuego().eliminar(this);
+		miCelda = null;
+	}
+}

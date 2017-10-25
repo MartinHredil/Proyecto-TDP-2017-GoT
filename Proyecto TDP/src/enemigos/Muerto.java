@@ -9,11 +9,15 @@ public class Muerto extends Enemigo {
 	{
 		super(c);
 		
+		velocidad = 3;
+		monedas = 200;
+		puntos = 500;
+		
 		grafico = new JLabel();
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Muerto.png")));
 		
-		monedas = 200;
-		puntos = 500;
+		moverme = new MoverEnemigo(this);
+		moverme.start();
 	}
 	
 }

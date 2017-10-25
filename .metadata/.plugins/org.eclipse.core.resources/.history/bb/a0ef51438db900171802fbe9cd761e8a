@@ -1,0 +1,18 @@
+package juego;
+
+public class TEST implements Runnable {
+	
+	protected static GUI g;
+	
+	public void run()
+	{
+		g = new GUI(this);
+	}
+
+	public void terminar()
+	{
+		g.dispose();
+		g = new GUI(this);
+	}
+
+}
