@@ -153,7 +153,8 @@ public class GUI extends JFrame{
 				Iterator<Contenido> it = mapa.getCelda(i,j).getContenido();
 				while(it.hasNext())
 				{
-					etiqueta = it.next().getGrafico();
+					Contenido c = it.next();
+					etiqueta = c.getGrafico();
 					etiqueta.setBounds(j,i*80,80,80);
 				}
 			}

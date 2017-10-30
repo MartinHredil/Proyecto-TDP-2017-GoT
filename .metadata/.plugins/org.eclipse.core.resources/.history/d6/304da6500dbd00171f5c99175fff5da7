@@ -12,7 +12,7 @@ public class DragonMuerto extends Enemigo {
 	{
 		super(c);
 		
-		vida=1000;
+		vida=100;
 		danioAtaque=20;
 		
 		velocidad = 8;
