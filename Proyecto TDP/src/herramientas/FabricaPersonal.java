@@ -11,12 +11,24 @@ public class FabricaPersonal implements FabricaPersonajes{
 	{
 		return new Soldado(c);
 	}
+	
 	public Personaje crearArquero(Celda c)
 	{
 		return new Arquero(c);
 	}
+	
 	public Personaje crearDragon(Celda c)
 	{
 		return new Dragon(c);
+	}
+	
+	public Personaje crearLobo(Celda c)
+	{
+		return new Lobo(c);
+	}
+	
+	public Personaje crearBallesta(Celda c)
+	{
+		return new Ballesta(c);
 	}
 }

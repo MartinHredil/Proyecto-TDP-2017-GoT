@@ -2,8 +2,6 @@ package mapa;
 import visitor.Visitor;
 import javax.swing.JLabel;
 
-import juego.Juego;
-
 public abstract class Contenido {
 	
 	protected Celda miCelda;
@@ -14,6 +12,7 @@ public abstract class Contenido {
 	{
 		miCelda = c;
 		vida = 0;
+		grafico = new JLabel();
 	}
 	
 	public Celda getCelda()

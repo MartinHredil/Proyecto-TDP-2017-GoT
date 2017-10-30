@@ -1,6 +1,5 @@
 package disparos;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import mapa.*;
 
 public class BolaFuego extends DisparoPersonaje{
@@ -9,9 +8,9 @@ public class BolaFuego extends DisparoPersonaje{
 	public BolaFuego(Celda c)
 	{
 		super(c);
+		danioAtaque=30;
 		velocidad = 1;
-		grafico = new JLabel();
-		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Flecha.png")));
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/BolaDeFuego.gif")));
 		miCelda.getMapa().getJuego().agregar(this);
 		moverme = new MoverDisparoPersonaje(this);
 		moverme.start();

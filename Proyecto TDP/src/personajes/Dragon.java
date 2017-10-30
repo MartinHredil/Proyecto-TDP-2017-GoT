@@ -1,7 +1,5 @@
 package personajes;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
 import mapa.Celda;
 
 public class Dragon extends Personaje {
@@ -11,8 +9,8 @@ public class Dragon extends Personaje {
 	public Dragon(Celda c)
 	{
 		super(c);
-		grafico = new JLabel();
-		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Arquero.png")));
+		vida = 100;
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Dragon.gif")));
 		generarBolaFuego = new GenerarBolaFuego(this);
 		generarBolaFuego.start();
 	}
@@ -21,5 +19,15 @@ public class Dragon extends Personaje {
 	{
 		generarBolaFuego.terminate();
 		super.destruir();
+	}
+	
+	public void atacar()
+	{
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Dragon.gif")));
+	}
+	
+	public void esperar()
+	{
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Dragon.gif")));
 	}
 }

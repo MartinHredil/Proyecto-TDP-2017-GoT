@@ -1,0 +1,48 @@
+package enemigos;
+
+import javax.swing.*;
+
+import mapa.*;
+import personajes.GenerarBolaFuego;
+
+public class DragonMuerto extends Enemigo {
+
+	protected GenerarBolaFuegoCongelado generarBolaFuegoCongelado;
+	
+	public DragonMuerto(Celda c)
+	{
+		super(c);
+		
+		vida=100;
+		danioAtaque=20;
+		
+		velocidad = 8;
+		monedas = 200;
+		puntos = 500;
+		
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/DragonMuerto.gif")));
+		
+		generarBolaFuegoCongelado = new GenerarBolaFuegoCongelado(this);
+		generarBolaFuegoCongelado.start();
+		
+		moverme = new MoverEnemigo(this);
+		moverme.start();
+	}
+	
+	public void destruir()
+	{
+		generarBolaFuegoCongelado.terminate();
+		super.destruir();
+	}
+	
+	public void caminar()
+	{
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Dragon.gif")));
+	}
+	
+	public void atacar()
+	{
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Dragon.gif")));
+	}
+	
+}

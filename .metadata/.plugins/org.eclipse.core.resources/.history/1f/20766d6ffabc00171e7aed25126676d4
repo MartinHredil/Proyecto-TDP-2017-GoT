@@ -1,0 +1,13 @@
+package objetos;
+
+import javax.swing.JLabel;
+import mapa.Celda;
+
+public class Bomba extends Objeto {
+
+	public Bomba(Celda c)
+	{
+		super(c);
+		vida=0;
+	}
+}

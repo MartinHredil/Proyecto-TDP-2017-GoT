@@ -20,9 +20,7 @@ public class VisitorDisparoPersonaje implements Visitor {
 	{
 		e.decrementarVida(disparoPersonaje.getDanioAtaque());
 		if(e.getVida()<=0)
-		{
 			e.destruir();
-		}
 		return true;
 	}
 	

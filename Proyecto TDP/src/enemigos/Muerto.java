@@ -9,15 +9,29 @@ public class Muerto extends Enemigo {
 	{
 		super(c);
 		
-		velocidad = 3;
-		monedas = 200;
-		puntos = 500;
+		vida=1000;
+		danioAtaque=20;
 		
-		grafico = new JLabel();
-		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Muerto.png")));
+		velocidad = 4;
+		monedas = 200;
+		puntos = 300;
+		
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/MuertoCaminando.gif")));
 		
 		moverme = new MoverEnemigo(this);
 		moverme.start();
+	}
+	
+	public void caminar()
+	{
+		caminando=true;
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/MuertoCaminando.gif")));
+	}
+	
+	public void atacar()
+	{
+		caminando=false;
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/MuertoAtacando.gif")));
 	}
 	
 }

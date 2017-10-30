@@ -1,0 +1,11 @@
+package objetos;
+
+import mapa.Celda;
+
+public class Arbol extends Objeto {
+
+	public Arbol(Celda c)
+	{
+		super(c);
+	}
+}

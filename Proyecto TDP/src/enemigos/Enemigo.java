@@ -9,10 +9,12 @@ public abstract class Enemigo extends Contenido {
 	protected MoverEnemigo moverme;
 	protected int danioAtaque, puntos, monedas,velocidad;
 	protected Visitor miVisitor;
+	protected boolean caminando;
 	
 	public Enemigo(Celda c)
 	{
 		super(c);
+		caminando = true;
 		danioAtaque = 0;
 		puntos = 0;
 		monedas = 0;
@@ -28,6 +30,11 @@ public abstract class Enemigo extends Contenido {
 	public int getDanioAtaque()
 	{
 		return danioAtaque;
+	}
+	
+	public boolean getCaminando()
+	{
+		return caminando;
 	}
 	
 	public void destruir()
@@ -81,5 +88,8 @@ public abstract class Enemigo extends Contenido {
 	{
 		return v.visitarEnemigo(this);
 	}
+	
+	public abstract void caminar();
+	public abstract void atacar();
 	
 }

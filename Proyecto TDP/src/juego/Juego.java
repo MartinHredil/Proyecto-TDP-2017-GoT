@@ -1,6 +1,5 @@
 package juego;
 import mapa.*;
-import personajes.*;
 import niveles.*;
 import enemigos.*;
 
@@ -28,7 +27,7 @@ public class Juego {
 		
 		//PRUEBA
 		
-		Enemigo prueba=new Muerto(mapa.getCelda(0,700));
+		Enemigo prueba=new DragonMuerto(mapa.getCelda(0,700));
 		mapa.getCelda(0,700).agregar(prueba);
 		
 		Enemigo prueba6=new Muerto(mapa.getCelda(1,600));

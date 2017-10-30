@@ -6,10 +6,12 @@ import visitor.*;
 public abstract class Personaje extends Contenido {
 
 	protected int danioAtaque;
+	protected boolean esperando;
 	
 	public Personaje(Celda c)
 	{
 		super(c);
+		esperando = true;
 		posicion = 0;
 	}
 	
@@ -28,8 +30,17 @@ public abstract class Personaje extends Contenido {
 		super.destruir();
 	}
 	
+	public boolean getEsperando()
+	{
+		return esperando;
+	}
+	
 	public boolean aceptar(Visitor v)
 	{
 		return v.visitarPersonaje(this);
 	}
+	
+	public abstract void atacar();
+	
+	public abstract void esperar();
 }

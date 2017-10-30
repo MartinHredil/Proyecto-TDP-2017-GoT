@@ -8,8 +8,6 @@ import java.awt.event.MouseListener;
 import java.util.Iterator;
 
 import mapa.*;
-import enemigos.*;
-import personajes.*;
 import herramientas.*;
 
 public class GUI extends JFrame{
@@ -21,7 +19,8 @@ public class GUI extends JFrame{
 	
 	protected Juego juego;
 	protected Mapa mapa;
-	protected FabricaPersonajes fabrica;
+	protected FabricaPersonajes fabricaPersonajes;
+	protected FabricaObjetos fabricaObjetos;
 	protected int fabricado;
 	
 	protected JPanel panelOpciones;
@@ -31,7 +30,7 @@ public class GUI extends JFrame{
 	protected JLabel etiquetaPuntos;
 	protected JLabel etiquetaMonedas;
 	
-	protected JButton personajes[];
+	protected JButton market[];
 	protected String nombres[];
 	
 	public GUI()
@@ -45,12 +44,13 @@ public class GUI extends JFrame{
 		ancho = cantColumnas;
 		//ancho = cantColumnas * 80;
 		
-		fabrica = new FabricaPersonal();
+		fabricaPersonajes = new FabricaPersonal();
+		fabricaObjetos =new FabricaCosas();
 		fabricado=-1;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
-		setSize(ancho+6, alto+129);
+		setSize(ancho+6, alto+189);
 		
 		panelOpciones = new JPanel();
 		inicializarPanelBotones();
@@ -70,24 +70,46 @@ public class GUI extends JFrame{
 	{
 		panelOpciones.setLayout(null);
 		panelOpciones.setBorder(BorderFactory.createLineBorder(Color.black));
-		panelOpciones.setBounds(0,0, ancho, 100);
+		panelOpciones.setBounds(0,0, ancho, 160);
 		
-		nombres = new String[3];
-		personajes = new JButton[3];
+		int i;
+		nombres = new String[8];
+		market = new JButton[8];
 		
-		nombres[0]="Soldado.png";
-		nombres[1]="Arquero.png";
-		nombres[2]="Arquero.png";
+		//PERSONAJES
+		nombres[0]="SoldadoQuieto.png";
+		nombres[1]="ArqueroQuieto.png";
+		nombres[2]="DragonQuieto.png";
+		nombres[3]="LoboQuieto.png";
+		nombres[4]="BallestaQuieto.png";
 		
-		for(int i=0;i<3;i++)
+		//OBJETOS
+		nombres[5]="Piedra.png";
+		nombres[6]="Muro.png";
+		nombres[7]="DragonQuieto.png";
+		
+		for(i=0;i<5;i++)
 		{
-			personajes[i]=new JButton();
-			personajes[i].setBounds(0+(i*60), 0, 60, 60);
-			personajes[i].setIcon(new ImageIcon(this.getClass().getResource("/sources/"+nombres[i])));
-			personajes[i].setActionCommand(""+i);
-			personajes[i].addActionListener(new OyenteAgregarPersonaje());
-			panelOpciones.add(personajes[i]);
+			market[i]=new JButton();
+			market[i].setBounds(0+(i*60), 0, 60, 60);
+			market[i].setIcon(new ImageIcon(this.getClass().getResource("/sources/"+nombres[i])));
+			market[i].setActionCommand(""+i);
+			market[i].addActionListener(new OyenteAgregar());
+			panelOpciones.add(market[i]);
 		}
+		
+		int cont = 0;
+		for(int j=i;j<i+3;j++)
+		{
+			market[j]=new JButton();
+			market[j].setBounds(0+(cont*60), 60, 60, 60);
+			market[j].setIcon(new ImageIcon(this.getClass().getResource("/sources/"+nombres[j])));
+			market[j].setActionCommand(""+j);
+			market[j].addActionListener(new OyenteAgregar());
+			panelOpciones.add(market[j]);
+			cont++;
+		}
+		
 
 		etiquetaPuntos = new JLabel("Puntos: "+juego.getPuntos());
 		etiquetaPuntos.setBounds(ancho-100,0 , 80, 20);
@@ -103,7 +125,7 @@ public class GUI extends JFrame{
 	{
 		panelJuego.setLayout(null);
 		panelJuego.setBackground(new Color(135,206,255));
-		panelJuego.setBounds(0, 100, ancho, alto);
+		panelJuego.setBounds(0, 160, ancho, alto);
 		
 		for(int i=0;i<cantFilas;i++)
 		{
@@ -133,8 +155,6 @@ public class GUI extends JFrame{
 				{
 					etiqueta = it.next().getGrafico();
 					etiqueta.setBounds(j,i*80,80,80);
-					//panelJuego.add(etiqueta);
-					//etiqueta.repaint();
 				}
 			}
 		}
@@ -162,7 +182,7 @@ public class GUI extends JFrame{
 		
 	}
 	
-	private class OyenteAgregarPersonaje implements ActionListener {
+	private class OyenteAgregar implements ActionListener {
         public void actionPerformed(ActionEvent e)
         {
         	fabricado = Integer.parseInt(e.getActionCommand());
@@ -178,14 +198,24 @@ public class GUI extends JFrame{
         	if(fabricado>=0)
         	{
         		Celda aux = mapa.getCelda(i, j);
-        		Personaje nuevo=null;
+        		Contenido nuevo=null;
     			switch (fabricado) {
-                case 0:  nuevo = fabrica.crearSoldado(aux);
+                case 0:  nuevo = fabricaPersonajes.crearSoldado(aux);
                          break;
-                case 1:  nuevo = fabrica.crearArquero(aux);
+                case 1:  nuevo = fabricaPersonajes.crearArquero(aux);
                          break;
-                case 2:  nuevo = fabrica.crearArquero(aux);
+                case 2:  nuevo = fabricaPersonajes.crearDragon(aux);
                          break;
+                case 3:  nuevo = fabricaPersonajes.crearLobo(aux);
+                		 break;
+                case 4:  nuevo = fabricaPersonajes.crearBallesta(aux);
+       		 			 break;
+                case 5:  nuevo = fabricaObjetos.crearPiedra(aux);
+                		 break;
+                case 6:  nuevo = fabricaObjetos.crearMuralla(aux);
+                		 break;
+                case 7:  nuevo = fabricaObjetos.crearBomba(aux);
+       		 			 break;
             	}
     			
         		if(!aux.ocupado(nuevo.getPosicion()))

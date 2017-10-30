@@ -1,4 +1,6 @@
 package disparos;
+import java.util.Iterator;
+
 import mapa.*;
 import visitor.Visitor;
 import visitor.VisitorDisparoEnemigo;
@@ -29,21 +31,49 @@ public abstract class DisparoEnemigo extends Contenido {
 	
 	public void mover()
 	{
-		if(miCelda.getColumna()==0)
+		boolean mover = true;
+		Celda sig = miCelda.getIzquierda();
+		int cont = 0;
+		
+		if(sig!=null)
 		{
-			destruir();
+			while(cont<80 && mover)
+			{
+				cont++;
+				sig = miCelda.getMapa().getCelda(miCelda.getFila(), miCelda.getColumna()-cont);
+				if(sig!=null)
+				{
+					Iterator<Contenido> it = sig.getContenido();
+					while(it.hasNext())
+					{
+						if(it.next().aceptar(miVisitor))
+						{
+							mover = false;
+						}
+					}
+				}
+			}
+			
+			if(mover)
+			{
+				miCelda.quitar(posicion);
+				miCelda = miCelda.getIzquierda();
+				miCelda.agregar(this);
+			}
+			else
+			{
+				destruir();
+			}
 		}
 		else
 		{
-			miCelda.quitar(posicion);
-			miCelda = miCelda.getIzquierda();
-			miCelda.agregar(this);
+			destruir();
 		}
 	}
 	
 	public void destruir()
 	{
-		//TERMINAR MOVERME
+		moverme.terminate();
 		super.destruir();
 	}
 	

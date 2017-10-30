@@ -11,8 +11,9 @@
 <fullyQualifiedTypeName name="juego.GenerarFlechas"/>
 <fullyQualifiedTypeName name="disparos.DisparoPersonaje"/>
 <fullyQualifiedTypeName name="herramientas.Director"/>
-<fullyQualifiedTypeName name="javax.swing.JLabel"/>
 <fullyQualifiedTypeName name="juego.Juego"/>
 <fullyQualifiedTypeName name="personajes.Personaje"/>
 <fullyQualifiedTypeName name="mapa.Celda"/>
+<fullyQualifiedTypeName name="javax.swing.JLabel"/>
+<fullyQualifiedTypeName name="visitor.VisitorPowerUp"/>
 </qualifiedTypeNameHistroy>
