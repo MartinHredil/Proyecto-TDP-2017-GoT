@@ -1,0 +1,33 @@
+package powerups;
+
+import javax.swing.ImageIcon;
+
+import mapa.Celda;
+import personajes.Personaje;
+
+public class Proteccion extends PowerUp {
+	
+	protected int vidaAnterior;
+	protected DuracionPW duracion;
+	protected Personaje personaje;
+
+	public Proteccion(Celda c)
+	{
+		super(c);
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/PWRojo.gif")));
+	}
+	
+	public void getPowerUp(Personaje p)
+	{
+		personaje = p;
+		vidaAnterior = p.getVida();
+		p.setVida(Integer.MAX_VALUE);
+		duracion = new DuracionPW(this);
+		duracion.start();
+	}
+	
+	public void terminar()
+	{
+		personaje.setVida(vidaAnterior);
+	}
+}

@@ -9,6 +9,6 @@ public class Bomba extends Objeto {
 	{
 		super(c);
 		vida=0;
-		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/SoldadoEsperando.gif")));
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Bomba.gif")));
 	}
 }

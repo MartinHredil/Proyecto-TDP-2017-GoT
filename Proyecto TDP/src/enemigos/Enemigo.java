@@ -1,7 +1,11 @@
 package enemigos;
 import java.util.Iterator;
+import java.util.Random;
+
+import herramientas.Director;
 import juego.Juego;
 import mapa.*;
+import powerups.PowerUp;
 import visitor.*;
 
 public abstract class Enemigo extends Contenido {
@@ -10,8 +14,10 @@ public abstract class Enemigo extends Contenido {
 	protected int danioAtaque, puntos, monedas,velocidad;
 	protected Visitor miVisitor;
 	protected boolean caminando;
+	protected boolean bonus;
+	protected Director director;
 	
-	public Enemigo(Celda c)
+	public Enemigo(Celda c,boolean b)
 	{
 		super(c);
 		caminando = true;
@@ -20,6 +26,11 @@ public abstract class Enemigo extends Contenido {
 		monedas = 0;
 		posicion = 1;
 		miVisitor = new VisitorEnemigo(this);
+		bonus = b;
+		if(bonus)
+		{
+			director = new Director();
+		}
 	}
 	
 	public int getVelocidad()
@@ -43,6 +54,15 @@ public abstract class Enemigo extends Contenido {
 		Juego j = miCelda.getMapa().getJuego();
 		j.incrementarMonedas(monedas);
 		j.incrementarPuntos(puntos);
+		j.quitarEnemigo(this);
+		if(bonus)
+		{
+			Random r = new Random();
+			PowerUp nuevo = director.crearPowerUP(miCelda, (r.nextInt(3)+1));
+			if(nuevo!=null)
+			miCelda.agregar(nuevo);
+			j.agregar(nuevo);
+		}
 		super.destruir();
 	}
 	
@@ -51,6 +71,7 @@ public abstract class Enemigo extends Contenido {
 		boolean mover = true;
 		Celda sig = miCelda.getIzquierda();
 		int cont = 0;
+		Contenido aux;
 		
 		if(sig==null)
 		{
@@ -67,7 +88,8 @@ public abstract class Enemigo extends Contenido {
 					Iterator<Contenido> it = sig.getContenido();
 					while(it.hasNext())
 					{
-						if(it.next().aceptar(miVisitor))
+						aux=it.next();
+						if(aux!=null && aux.aceptar(miVisitor))
 						{
 							mover = false;
 						}

@@ -2,18 +2,20 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="enemigos.Enemigo"/>
 <fullyQualifiedTypeName name="objetos.Objeto"/>
-<fullyQualifiedTypeName name="powerups.PowerUp"/>
 <fullyQualifiedTypeName name="disparos.DisparoEnemigo"/>
 <fullyQualifiedTypeName name="visitor.Visitor"/>
-<fullyQualifiedTypeName name="mapa.Contenido"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="personajes.Arquero"/>
 <fullyQualifiedTypeName name="juego.GenerarFlechas"/>
 <fullyQualifiedTypeName name="disparos.DisparoPersonaje"/>
-<fullyQualifiedTypeName name="herramientas.Director"/>
 <fullyQualifiedTypeName name="juego.Juego"/>
-<fullyQualifiedTypeName name="personajes.Personaje"/>
-<fullyQualifiedTypeName name="mapa.Celda"/>
 <fullyQualifiedTypeName name="javax.swing.JLabel"/>
 <fullyQualifiedTypeName name="visitor.VisitorPowerUp"/>
+<fullyQualifiedTypeName name="mapa.Celda"/>
+<fullyQualifiedTypeName name="herramientas.Director"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="powerups.PowerUp"/>
+<fullyQualifiedTypeName name="mapa.Contenido"/>
+<fullyQualifiedTypeName name="personajes.Personaje"/>
+<fullyQualifiedTypeName name="herramientas.Coleccion"/>
 </qualifiedTypeNameHistroy>

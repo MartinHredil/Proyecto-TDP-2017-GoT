@@ -35,6 +35,11 @@ public abstract class Personaje extends Contenido {
 		return esperando;
 	}
 	
+	public void setVida(int v)
+	{
+		vida = v;
+	}
+	
 	public boolean aceptar(Visitor v)
 	{
 		return v.visitarPersonaje(this);

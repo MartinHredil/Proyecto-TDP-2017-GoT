@@ -2,6 +2,7 @@ package juego;
 import mapa.*;
 import niveles.*;
 import enemigos.*;
+import herramientas.Coleccion;
 
 public class Juego {
 
@@ -9,6 +10,7 @@ public class Juego {
 	protected Mapa mapa;
 	protected int cantFilas, cantColumnas, puntos, monedas;
 	protected GUI gui;
+	protected Coleccion<Enemigo> enemigos;
 	protected RefrescarGUI refresco;
 	protected boolean terminar;
 	
@@ -24,14 +26,25 @@ public class Juego {
 		cantColumnas=10*80;
 		puntos=0;
 		monedas=0;
+		enemigos = new Coleccion<Enemigo>();
 		
 		//PRUEBA
 		
-		Enemigo prueba=new DragonMuerto(mapa.getCelda(0,700));
+		Enemigo prueba=new DragonMuerto(mapa.getCelda(0,700),true);
 		mapa.getCelda(0,700).agregar(prueba);
+		enemigos.add(prueba);
 		
-		Enemigo prueba6=new Muerto(mapa.getCelda(1,600));
-		mapa.getCelda(1,600).agregar(prueba6);
+		Enemigo prueba6=new Muerto(mapa.getCelda(1,700),false);
+		mapa.getCelda(1,700).agregar(prueba6);
+		enemigos.add(prueba6);
+		
+		Enemigo prueba3=new Caminante(mapa.getCelda(2,700),false);
+		mapa.getCelda(2,700).agregar(prueba3);
+		enemigos.add(prueba3);
+		
+		Enemigo prueba4=new CaminanteCaballo(mapa.getCelda(3,700),true);
+		mapa.getCelda(3,700).agregar(prueba4);
+		enemigos.add(prueba4);
 		
 		/*Personaje prueba7= new Arquero(mapa.getCelda(0, 80));
 		mapa.getCelda(0,80).agregar(prueba7);
@@ -120,6 +133,20 @@ public class Juego {
 		gui.agregar(c.getGrafico());
 	}
 	
+	public void agregarEnemigo(Enemigo e)
+	{
+		
+	}
+	
+	public void quitarEnemigo(Enemigo e)
+	{
+		enemigos.remove(e);
+		if(enemigos.isEmpty())
+		{
+			terminarJuego(true);
+		}
+	}
+	
 	public void incrementarMonedas(int m)
 	{
 		monedas+=m;
@@ -132,12 +159,27 @@ public class Juego {
 	
 	public void terminarJuego(boolean gano)
 	{
-		refresco.terminate();
-		gui.terminar(gano);
 		if(!terminar)
 		{
 			terminar = true;
-			new GUI();
+			refresco.terminate();
+			boolean JugarDeNuevo = gui.terminar(gano);
+			
+			if(JugarDeNuevo)
+			{
+				if(gano)
+				{
+					new GUI();
+				}
+				else
+				{
+					new GUI();
+				}
+			}
+			else
+			{
+				
+			}
 		}
 	}
 	

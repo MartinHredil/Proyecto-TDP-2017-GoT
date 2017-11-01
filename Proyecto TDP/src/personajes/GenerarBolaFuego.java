@@ -42,6 +42,7 @@ public class GenerarBolaFuego extends Thread {
 			{ 
 				DisparoPersonaje dp = new BolaFuego(celda);
 				celda.agregar(dp);
+				juego.agregar(dp);
 			}
 			else
 			{

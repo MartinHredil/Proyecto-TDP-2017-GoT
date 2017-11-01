@@ -66,7 +66,7 @@ public class Celda {
 		if(misContenidos[4]!=null)
 		c.add(misContenidos[4]);
 		if(misContenidos[5]!=null)
-			c.add(misContenidos[4]);
+			c.add(misContenidos[5]);
 		
 		return c.iterator();		
 	}

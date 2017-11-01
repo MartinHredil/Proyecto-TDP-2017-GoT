@@ -1,9 +1,0 @@
-package herramientas;
-import personajes.*;
-
-public interface FabricaPersonajes {
-
-	public Personaje crearSoldado();
-	public Personaje crearArquero();
-	public Personaje crearDragon();
-}

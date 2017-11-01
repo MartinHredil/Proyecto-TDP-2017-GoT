@@ -29,6 +29,8 @@ public class GUI extends JFrame{
 	protected JLabel etiqueta;
 	protected JLabel etiquetaPuntos;
 	protected JLabel etiquetaMonedas;
+	protected JLabel etiquetaInformacion;
+	protected JLabel etiquetaMarket;
 	
 	protected JButton market[];
 	protected String nombres[];
@@ -72,6 +74,8 @@ public class GUI extends JFrame{
 		panelOpciones.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelOpciones.setBounds(0,0, ancho, 160);
 		
+		
+		
 		int i;
 		nombres = new String[8];
 		market = new JButton[8];
@@ -86,12 +90,12 @@ public class GUI extends JFrame{
 		//OBJETOS
 		nombres[5]="Piedra.png";
 		nombres[6]="Muro.png";
-		nombres[7]="DragonQuieto.png";
+		nombres[7]="BombaQuieto.png";
 		
 		for(i=0;i<5;i++)
 		{
 			market[i]=new JButton();
-			market[i].setBounds(0+(i*60), 0, 60, 60);
+			market[i].setBounds(0+(i*60), 20, 60, 60);
 			market[i].setIcon(new ImageIcon(this.getClass().getResource("/sources/"+nombres[i])));
 			market[i].setActionCommand(""+i);
 			market[i].addActionListener(new OyenteAgregar());
@@ -102,7 +106,7 @@ public class GUI extends JFrame{
 		for(int j=i;j<i+3;j++)
 		{
 			market[j]=new JButton();
-			market[j].setBounds(0+(cont*60), 60, 60, 60);
+			market[j].setBounds(0+(cont*60), 80, 60, 60);
 			market[j].setIcon(new ImageIcon(this.getClass().getResource("/sources/"+nombres[j])));
 			market[j].setActionCommand(""+j);
 			market[j].addActionListener(new OyenteAgregar());
@@ -110,6 +114,11 @@ public class GUI extends JFrame{
 			cont++;
 		}
 		
+		etiquetaMarket = new JLabel("MarketPlace");
+		etiquetaMarket.setBounds(120, 0, 500, 25);
+		
+		etiquetaInformacion = new JLabel("NO DISPONE DE DINERO SUFICIENTE");
+		etiquetaInformacion.setBounds(5, 140, 500, 25);
 
 		etiquetaPuntos = new JLabel("Puntos: "+juego.getPuntos());
 		etiquetaPuntos.setBounds(ancho-100,0 , 80, 20);
@@ -117,6 +126,8 @@ public class GUI extends JFrame{
 		etiquetaMonedas = new JLabel("Monedas: "+juego.getMonedas());
 		etiquetaMonedas.setBounds(ancho-200,0 , 80, 20);
 		
+		panelOpciones.add(etiquetaMarket);
+		panelOpciones.add(etiquetaInformacion);
 		panelOpciones.add(etiquetaMonedas);
 		panelOpciones.add(etiquetaPuntos);
 	}
@@ -154,8 +165,11 @@ public class GUI extends JFrame{
 				while(it.hasNext())
 				{
 					Contenido c = it.next();
-					etiqueta = c.getGrafico();
-					etiqueta.setBounds(j,i*80,80,80);
+					if(c!=null)
+					{
+						etiqueta = c.getGrafico();
+						etiqueta.setBounds(j,i*80,80,80);
+					}
 				}
 			}
 		}
@@ -173,9 +187,34 @@ public class GUI extends JFrame{
 		panelJuego.add(j);
 	}
 	
-	public void terminar(boolean gano)
+	public boolean terminar(boolean gano)
 	{
+		
+		boolean respuesta=false;
+		
+		if(gano)
+		{
+			int seleccion = JOptionPane.showOptionDialog( null,"FELICIDADES, GANASTE",
+					  "Selector de opciones",JOptionPane.YES_NO_CANCEL_OPTION,
+					   JOptionPane.QUESTION_MESSAGE,null,// null para icono por defecto.
+					  new Object[] { "Nivel Siguiente", "Cerrar"},"Nivel Siguiente");
+					      
+			if(seleccion==0) respuesta = true;
+			else respuesta = false;
+		}
+		else
+		{
+			int seleccion = JOptionPane.showOptionDialog( null,"USTED PERDIO",
+					  "Selector de opciones",JOptionPane.YES_NO_CANCEL_OPTION,
+					   JOptionPane.QUESTION_MESSAGE,null,// null para icono por defecto.
+					  new Object[] { "Jugar de Nuevo", "Cerrar"},"Jugar de Nuevo");
+					      
+			if(seleccion==0) respuesta = true;
+			else respuesta = false;
+		}
+		
 		this.dispose();
+		return respuesta;
 	}
 	
 	public void nuevoJuego()

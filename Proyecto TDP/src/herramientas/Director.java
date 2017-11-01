@@ -1,31 +1,32 @@
 package herramientas;
-import mapa.Contenido;
-import disparos.*;
-import enemigos.*;
-import personajes.*;
+import mapa.Celda;
+import powerups.*;
 
 /* Patron de Diseño Builder*/
 
 public class Director {
 
-	public Contenido crearEnemigo(int opcion)
+	public PowerUp crearPowerUP(Celda c,int opcion)
 	{
-		Contenido toReturn = null;
-		if(opcion==1)
-			toReturn = new Muerto(null);
+		PowerUp toReturn = null;
+		switch(opcion)
+		{
+		case 1:
+		{
+			toReturn = new PlusAtaque(c);
+			break;
+		}
+		case 2:
+		{
+			toReturn = new PlusVida(c);
+			break;
+		}
+		case 3:
+		{
+			toReturn = new Proteccion(c);
+			break;
+		}
+		}
 		return toReturn;
-	}
-	
-	public Contenido crearPersonaje(int opcion)
-	{
-		Contenido toReturn = null;
-		if(opcion==1)
-			toReturn = new Soldado(null);
-		return toReturn;
-	}
-	
-	public DisparoPersonaje crearFlecha()
-	{
-		return (new FlechaArquero(null));
 	}
 }

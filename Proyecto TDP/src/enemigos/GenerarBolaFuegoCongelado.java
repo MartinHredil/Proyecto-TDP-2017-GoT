@@ -42,6 +42,7 @@ public class GenerarBolaFuegoCongelado extends Thread {
 			{ 
 				DisparoEnemigo de = new BolaFuegoCongelado(celda);
 				celda.agregar(de);
+				juego.agregar(de);
 			}
 			else
 			{

@@ -8,11 +8,11 @@ public class DragonMuerto extends Enemigo {
 
 	protected GenerarBolaFuegoCongelado generarBolaFuegoCongelado;
 	
-	public DragonMuerto(Celda c)
+	public DragonMuerto(Celda c, boolean b)
 	{
-		super(c);
+		super(c,b);
 		
-		vida=1000;
+		vida=10;
 		danioAtaque=20;
 		
 		velocidad = 8;

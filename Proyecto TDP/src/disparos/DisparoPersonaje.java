@@ -34,7 +34,7 @@ public abstract class DisparoPersonaje extends Contenido {
 		boolean mover = true;
 		Celda sig = miCelda.getDerecha();
 		int cont = 0;
-		
+		Contenido aux;
 		if(sig!=null)
 		{
 			while(cont<80 && mover)
@@ -46,7 +46,8 @@ public abstract class DisparoPersonaje extends Contenido {
 					Iterator<Contenido> it = sig.getContenido();
 					while(it.hasNext())
 					{
-						if(it.next().aceptar(miVisitor))
+						aux = it.next();
+						if(aux!= null && aux.aceptar(miVisitor))
 						{
 							mover = false;
 						}

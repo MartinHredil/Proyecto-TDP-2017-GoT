@@ -5,11 +5,11 @@ import mapa.*;
 
 public class Muerto extends Enemigo {
 
-	public Muerto(Celda c)
+	public Muerto(Celda c, boolean b)
 	{
-		super(c);
+		super(c,b);
 		
-		vida=1000;
+		vida=10;
 		danioAtaque=20;
 		
 		velocidad = 4;

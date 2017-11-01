@@ -26,6 +26,7 @@ public abstract class PowerUp extends Contenido{
 		boolean parar = false;
 		Celda sig;
 		int cont = 0;
+		Contenido aux;
 		
 		while(cont<40 && !parar)
 		{
@@ -36,7 +37,8 @@ public abstract class PowerUp extends Contenido{
 				Iterator<Contenido> it = sig.getContenido();
 				while(it.hasNext())
 				{
-					if(it.next().aceptar(miVisitor))
+					aux = it.next();
+					if(aux!=null && aux.aceptar(miVisitor))
 					{
 						comprobar = false;
 						parar=true;

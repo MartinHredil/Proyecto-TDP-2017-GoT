@@ -48,7 +48,10 @@ public abstract class Contenido {
 	public void destruir()
 	{
 		grafico.setIcon(null);
-		miCelda.quitar(posicion);
+		if(miCelda!=null)
+		{
+			miCelda.quitar(posicion);
+		}
 		miCelda = null;
 	}
 	

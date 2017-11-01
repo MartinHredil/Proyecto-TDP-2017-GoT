@@ -9,6 +9,6 @@ public class Muralla extends Objeto {
 	{
 		super(c);
 		vida=0;
-		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Muro.png")));
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Muro80.png")));
 	}
 }

@@ -34,6 +34,7 @@ public abstract class DisparoEnemigo extends Contenido {
 		boolean mover = true;
 		Celda sig = miCelda.getIzquierda();
 		int cont = 0;
+		Contenido aux;
 		
 		if(sig!=null)
 		{
@@ -46,7 +47,8 @@ public abstract class DisparoEnemigo extends Contenido {
 					Iterator<Contenido> it = sig.getContenido();
 					while(it.hasNext())
 					{
-						if(it.next().aceptar(miVisitor))
+						aux = it.next();
+						if(aux!=null && aux.aceptar(miVisitor))
 						{
 							mover = false;
 						}
