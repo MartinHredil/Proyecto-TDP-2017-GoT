@@ -1,6 +1,12 @@
 package juego;
 import mapa.*;
 import niveles.*;
+import objetos.Arbol;
+import objetos.Charco;
+import objetos.Objeto;
+
+import java.util.Random;
+
 import enemigos.*;
 import herramientas.Coleccion;
 
@@ -46,14 +52,28 @@ public class Juego {
 		mapa.getCelda(3,700).agregar(prueba4);
 		enemigos.add(prueba4);
 		
-		/*Personaje prueba7= new Arquero(mapa.getCelda(0, 80));
-		mapa.getCelda(0,80).agregar(prueba7);
+		Enemigo prueba2=new Oso(mapa.getCelda(4,700),true);
+		mapa.getCelda(4,700).agregar(prueba2);
+		enemigos.add(prueba2);
 		
-		Personaje prueba2= new Arquero(mapa.getCelda(0, 0));
-		mapa.getCelda(0,0).agregar(prueba2);
+		Random r1 = new Random();
+		Random r2 = new Random();
 		
-		Personaje prueba5= new Soldado(mapa.getCelda(1, 0));
-		mapa.getCelda(1,0).agregar(prueba5);*/
+		int Rnd1 = r1.nextInt(5)+1;
+		int Rnd2 = r1.nextInt(700);
+		if(Rnd2<100)
+			Rnd2+=100;
+		
+		Objeto prueba7 = new Charco(mapa.getCelda(Rnd1,Rnd2));
+		mapa.getCelda(Rnd1,Rnd2).agregar(prueba7);
+		
+		Rnd1 = r1.nextInt(5)+1;
+		Rnd2 = r1.nextInt(700);
+		if(Rnd2<100)
+			Rnd2+=100;
+		
+		Objeto prueba8 = new Arbol(mapa.getCelda(Rnd1,Rnd2));
+		mapa.getCelda(Rnd1,Rnd2).agregar(prueba8);
 		
 		//FIN PRUEBA
 		

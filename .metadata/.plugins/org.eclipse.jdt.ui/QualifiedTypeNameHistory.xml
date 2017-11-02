@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="enemigos.Enemigo"/>
-<fullyQualifiedTypeName name="objetos.Objeto"/>
 <fullyQualifiedTypeName name="disparos.DisparoEnemigo"/>
 <fullyQualifiedTypeName name="visitor.Visitor"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
@@ -18,4 +17,7 @@
 <fullyQualifiedTypeName name="mapa.Contenido"/>
 <fullyQualifiedTypeName name="personajes.Personaje"/>
 <fullyQualifiedTypeName name="herramientas.Coleccion"/>
+<fullyQualifiedTypeName name="objetos.Charco"/>
+<fullyQualifiedTypeName name="objetos.Objeto"/>
+<fullyQualifiedTypeName name="objetos.Arbol"/>
 </qualifiedTypeNameHistroy>

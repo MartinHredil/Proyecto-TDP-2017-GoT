@@ -9,4 +9,5 @@ public interface FabricaPersonajes {
 	public Personaje crearDragon(Celda c);
 	public Personaje crearLobo(Celda c);
 	public Personaje crearBallesta(Celda c);
+	public Personaje crearTorre(Celda c);
 }

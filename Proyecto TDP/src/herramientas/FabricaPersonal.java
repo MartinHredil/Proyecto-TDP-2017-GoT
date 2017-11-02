@@ -31,4 +31,9 @@ public class FabricaPersonal implements FabricaPersonajes{
 	{
 		return new Ballesta(c);
 	}
+	
+	public Personaje crearTorre(Celda c)
+	{
+		return new Torre(c);
+	}
 }
