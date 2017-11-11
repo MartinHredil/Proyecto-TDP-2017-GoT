@@ -17,9 +17,11 @@ public class Muerto extends Enemigo {
 		puntos = 300;
 		
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/MuertoCaminando.gif")));
-		
-		moverme = new MoverEnemigo(this);
-		moverme.start();
+		if(c!=null)
+		{
+			moverme = new MoverEnemigo(this);
+			moverme.start();
+		}
 	}
 	
 	public void caminar()

@@ -60,10 +60,36 @@ public class GUI extends JFrame{
 		panelJuego = new JPanel();
 		inicializarPanelJuego();
 		
-		getContentPane().setBackground(Color.green);
+		//Panel con etiqueta de fondo
+		JPanel panelFondo = new JPanel();
+		panelFondo.setLayout(null);
+		panelFondo.setBounds(0, 160, ancho, alto);
+		panelFondo.setOpaque(false);
+	    
+		JLabel fondo = new JLabel();
+	    fondo.setIcon(new ImageIcon(this.getClass().getResource("/sources/FondoJuego.png")));
+	    fondo.setBounds(0, 0, ancho, alto);
+	    panelFondo.add(fondo);
+	    
+	    //Panel con efecto nevando
+	    JPanel panelNevando = new JPanel();
+	    panelNevando.setLayout(null);
+		panelNevando.setBounds(0, 160, ancho, alto);
+		panelNevando.setOpaque(false);
+		
+		JLabel nevando = new JLabel();
+	    nevando.setIcon(new ImageIcon(this.getClass().getResource("/sources/Nevando.gif")));
+	    nevando.setBounds(0, 0, ancho, alto);
+	    panelNevando.add(nevando);
+		
+		
+	    getContentPane().setBackground(Color.green);
 		
 		getContentPane().add(panelOpciones);
+		getContentPane().add(panelNevando);
 		getContentPane().add(panelJuego);
+		getContentPane().add(panelFondo);
+		
 		this.setResizable(false);
 		this.setVisible(true);
 	}
@@ -138,6 +164,7 @@ public class GUI extends JFrame{
 		panelJuego.setLayout(null);
 		panelJuego.setBackground(new Color(135,206,255));
 		panelJuego.setBounds(0, 160, ancho, alto);
+		panelJuego.setOpaque(false);
 		
 		for(int i=0;i<cantFilas;i++)
 		{

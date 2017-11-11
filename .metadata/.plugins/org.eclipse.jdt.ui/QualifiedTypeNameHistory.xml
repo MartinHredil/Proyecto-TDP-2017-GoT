@@ -9,15 +9,15 @@
 <fullyQualifiedTypeName name="disparos.DisparoPersonaje"/>
 <fullyQualifiedTypeName name="javax.swing.JLabel"/>
 <fullyQualifiedTypeName name="visitor.VisitorPowerUp"/>
-<fullyQualifiedTypeName name="mapa.Celda"/>
 <fullyQualifiedTypeName name="herramientas.Director"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="powerups.PowerUp"/>
 <fullyQualifiedTypeName name="mapa.Contenido"/>
 <fullyQualifiedTypeName name="personajes.Personaje"/>
-<fullyQualifiedTypeName name="herramientas.Coleccion"/>
 <fullyQualifiedTypeName name="objetos.Charco"/>
 <fullyQualifiedTypeName name="objetos.Objeto"/>
 <fullyQualifiedTypeName name="objetos.Arbol"/>
 <fullyQualifiedTypeName name="juego.Juego"/>
+<fullyQualifiedTypeName name="herramientas.Coleccion"/>
+<fullyQualifiedTypeName name="mapa.Celda"/>
 </qualifiedTypeNameHistroy>

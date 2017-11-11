@@ -1,0 +1,7 @@
+package niveles;
+
+public abstract class Nivel extends Thread {
+
+	public abstract Nivel siguienteNivel();
+	public abstract Nivel reiniciarNivel();
+}

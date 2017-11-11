@@ -1,0 +1,76 @@
+package niveles;
+import juego.Juego;
+import mapa.Celda;
+import objetos.Arbol;
+import objetos.Charco;
+import objetos.Objeto;
+
+import java.util.Random;
+
+import enemigos.*;
+import herramientas.Coleccion;
+
+public class Nivel1 extends Nivel {
+
+	protected Juego juego;
+	protected Coleccion<String> Oleadas;
+	
+	public Nivel1(Juego j)
+	{
+		Oleadas = new Coleccion<String>();
+	}
+	
+	public void run()
+	{
+		Random r1 = new Random();
+		int Rnd1 = r1.nextInt(juego.getFilas()-1)+1;
+		int Rnd2 = r1.nextInt(juego.getColumnas()-80);
+		if(Rnd2<100 && juego.getColumnas()>100)
+			Rnd2+=100;
+		
+		Objeto prueba7 = new Charco(juego.getMapa().getCelda(Rnd1,Rnd2));
+		juego.getMapa().getCelda(Rnd1,Rnd2).agregar(prueba7);
+		
+		Rnd1 = r1.nextInt(juego.getFilas()-1)+1;
+		Rnd2 = r1.nextInt(juego.getColumnas()-80);
+		if(Rnd2<100 && juego.getColumnas()>100)
+			Rnd2+=100;
+		
+		Objeto prueba8 = new Arbol(juego.getMapa().getCelda(Rnd1,Rnd2));
+		juego.getMapa().getCelda(Rnd1,Rnd2).agregar(prueba8);
+		
+		try {
+			for(String s:Oleadas)
+			{
+				sleep(6000);
+				for(int i =0;i<s.length();i++)
+				{
+					Rnd1 = r1.nextInt(juego.getFilas()-1)+1;
+					Celda celda = juego.getMapa().getCelda(Rnd1, juego.getColumnas()-1);
+					Enemigo nuevo;
+					char Proximo = s.charAt(i);
+					
+					switch (proximo) {
+	                case 'M':  nuevo = fabricaPersonajes.crearSoldado(aux);
+	                         break;
+	                case 'O':  nuevo = fabricaPersonajes.crearArquero(aux);
+	                         break;
+	                case 'D':  nuevo = fabricaPersonajes.crearDragon(aux);
+	                         break;
+	                case 'C':  nuevo = fabricaPersonajes.crearLobo(aux);
+	                		 break;
+	                case 'H':  nuevo = fabricaPersonajes.crearBallesta(aux);
+	       		 			 break;
+	            	}
+					
+					celda.agregar(nuevo);
+					juego.agregarEnemigo(nuevo);
+				}
+				
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

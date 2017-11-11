@@ -32,7 +32,7 @@ public class Juego {
 		
 		nivel = new Nivel1(this);
 		
-		//PRUEBA
+		/*//PRUEBA
 		
 		
 				Enemigo prueba6=new Muerto(mapa.getCelda(1,700),false);
@@ -73,8 +73,9 @@ public class Juego {
 				Objeto prueba8 = new Arbol(mapa.getCelda(Rnd1,Rnd2));
 				mapa.getCelda(Rnd1,Rnd2).agregar(prueba8);
 				
-				//FIN PRUEBA
+				//FIN PRUEBA*/
 		gui = new GUI(this);
+		nivel.start();
 		refrescar();
 	}
 	
@@ -86,11 +87,13 @@ public class Juego {
 		mapa = new Mapa(cantFilas,cantColumnas,this);
 		
 		nivel = n;
+		n.setJuego(this);
 		
 		puntos=p;
 		monedas=m;
 		enemigos = new Coleccion<Enemigo>();
 		gui = new GUI(this);
+		nivel.start();
 		refrescar();
 	}
 	
@@ -129,7 +132,7 @@ public class Juego {
 	
 	public void agregarEnemigo(Enemigo e)
 	{
-		
+		enemigos.add(e);
 	}
 	
 	public void quitarEnemigo(Enemigo e)
@@ -156,6 +159,8 @@ public class Juego {
 		if(!terminar)
 		{
 			terminar = true;
+			int mon = monedas;
+			int pun = puntos;
 			refresco.terminate();
 			boolean JugarDeNuevo = gui.terminar(gano);
 			
@@ -163,11 +168,11 @@ public class Juego {
 			{
 				if(gano)
 				{
-					new Juego(nivel,monedas,puntos,cantFilas,cantColumnas/80);
+					new Juego(nivel.siguienteNivel(),mon,pun,cantFilas,cantColumnas/80);
 				}
 				else
 				{
-					new Juego(nivel,monedas,puntos,cantFilas,cantColumnas/80);
+					new Juego(nivel.reiniciarNivel(),mon,pun,cantFilas,cantColumnas/80);
 				}
 			}
 			else
