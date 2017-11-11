@@ -1,0 +1,32 @@
+package objetos;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+import mapa.Celda;
+
+	public class Muro extends Objeto {
+
+		public Muro(Celda c)
+		{
+			super(c);
+			vida=0;
+			grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/MuroParte2.png")));
+			
+			int fila = miCelda.getFila();
+			
+			if(fila==)
+			Celda segundaCelda = miCelda.getMapa().getCelda(miCelda.getFila()+1, miCelda.getColumna());
+			Muralla extension = new Muralla(segundaCelda);
+			
+			JLabel parte2 = new JLabel();
+			parte2.setIcon(new ImageIcon(this.getClass().getResource("/sources/MuroParte1.png")));
+			
+			extension.setGrafico(parte2);
+			
+			miCelda.getMapa().getJuego().agregar(extension);
+			
+			segundaCelda.agregar(extension);
+		}
+}
+

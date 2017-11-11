@@ -44,6 +44,11 @@ public abstract class Contenido {
 	{
 		vida-=n;
 	}
+
+	public void setGrafico(JLabel g) {
+		
+		grafico = g;
+	}
 	
 	public void destruir()
 	{

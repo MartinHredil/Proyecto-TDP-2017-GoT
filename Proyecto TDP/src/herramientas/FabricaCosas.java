@@ -19,4 +19,9 @@ public class FabricaCosas implements FabricaObjetos{
 	{
 		return new Bomba(c);
 	}
+	
+	public Objeto crearMuro(Celda c) {
+
+		return new Muro(c);
+	}
 }

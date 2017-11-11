@@ -103,8 +103,8 @@ public class GUI extends JFrame{
 		
 		
 		int i;
-		nombres = new String[9];
-		market = new JButton[9];
+		nombres = new String[10];
+		market = new JButton[10];
 		
 		//PERSONAJES
 		nombres[0]="SoldadoQuieto.png";
@@ -118,6 +118,7 @@ public class GUI extends JFrame{
 		nombres[6]="Piedra.png";
 		nombres[7]="Muro.png";
 		nombres[8]="BombaQuieto.png";
+		nombres[9]="Muro60x60.png";
 		
 		for(i=0;i<6;i++)
 		{
@@ -130,7 +131,7 @@ public class GUI extends JFrame{
 		}
 		
 		int cont = 0;
-		for(int j=i;j<i+3;j++)
+		for(int j=i;j<i+4;j++)
 		{
 			market[j]=new JButton();
 			market[j].setBounds(0+(cont*60), 80, 60, 60);
@@ -289,6 +290,8 @@ public class GUI extends JFrame{
                 		 break;
                 case 8:  nuevo = fabricaObjetos.crearBomba(aux);
        		 			 break;
+                case 9:  nuevo = fabricaObjetos.crearMuro(aux);
+		 			 break;
             	}
     			
         		if(!aux.ocupado(nuevo.getPosicion()))
