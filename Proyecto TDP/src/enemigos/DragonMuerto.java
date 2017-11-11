@@ -15,7 +15,7 @@ public class DragonMuerto extends Enemigo {
 		vida=10;
 		danioAtaque=20;
 		
-		velocidad = 8;
+		velocidad = 10;
 		monedas = 300;
 		puntos = 600;
 		

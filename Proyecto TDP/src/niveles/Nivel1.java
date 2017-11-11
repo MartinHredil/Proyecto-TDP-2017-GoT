@@ -1,0 +1,18 @@
+package niveles;
+import juego.Juego;
+import enemigos.*;
+
+public class Nivel1 extends Nivel {
+
+	protected Juego juego;
+	
+	public Nivel1(Juego j)
+	{
+		juego =j;
+	}
+	
+	public void run()
+	{
+		
+	}
+}

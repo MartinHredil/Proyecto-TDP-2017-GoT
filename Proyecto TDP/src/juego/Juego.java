@@ -20,106 +20,77 @@ public class Juego {
 	protected RefrescarGUI refresco;
 	protected boolean terminar;
 	
-	public Juego(GUI g)
+	public Juego(int f, int c)
 	{
 		terminar = false;
-		gui = g;
-		mapa = new Mapa(6,10*80,this);
-		
-		//nivel = new Nivel1();
-		
-		cantFilas=6;
-		cantColumnas=10*80;
+		cantFilas=f;
+		cantColumnas=c*80;
+		mapa = new Mapa(cantFilas,cantColumnas,this);
 		puntos=0;
-		monedas=0;
+		monedas=200;
 		enemigos = new Coleccion<Enemigo>();
+		
+		nivel = new Nivel1(this);
 		
 		//PRUEBA
 		
-		Enemigo prueba=new DragonMuerto(mapa.getCelda(0,700),true);
-		mapa.getCelda(0,700).agregar(prueba);
-		enemigos.add(prueba);
 		
-		Enemigo prueba6=new Muerto(mapa.getCelda(1,700),false);
-		mapa.getCelda(1,700).agregar(prueba6);
-		enemigos.add(prueba6);
-		
-		Enemigo prueba3=new Caminante(mapa.getCelda(2,700),false);
-		mapa.getCelda(2,700).agregar(prueba3);
-		enemigos.add(prueba3);
-		
-		Enemigo prueba4=new CaminanteCaballo(mapa.getCelda(3,700),true);
-		mapa.getCelda(3,700).agregar(prueba4);
-		enemigos.add(prueba4);
-		
-		Enemigo prueba2=new Oso(mapa.getCelda(4,700),true);
-		mapa.getCelda(4,700).agregar(prueba2);
-		enemigos.add(prueba2);
-		
-		Random r1 = new Random();
-		Random r2 = new Random();
-		
-		int Rnd1 = r1.nextInt(5)+1;
-		int Rnd2 = r1.nextInt(700);
-		if(Rnd2<100)
-			Rnd2+=100;
-		
-		Objeto prueba7 = new Charco(mapa.getCelda(Rnd1,Rnd2));
-		mapa.getCelda(Rnd1,Rnd2).agregar(prueba7);
-		
-		Rnd1 = r1.nextInt(5)+1;
-		Rnd2 = r1.nextInt(700);
-		if(Rnd2<100)
-			Rnd2+=100;
-		
-		Objeto prueba8 = new Arbol(mapa.getCelda(Rnd1,Rnd2));
-		mapa.getCelda(Rnd1,Rnd2).agregar(prueba8);
-		
-		//FIN PRUEBA
-		
+				Enemigo prueba6=new Muerto(mapa.getCelda(1,700),false);
+				mapa.getCelda(1,700).agregar(prueba6);
+				enemigos.add(prueba6);
+				
+				Enemigo prueba3=new Caminante(mapa.getCelda(2,700),false);
+				mapa.getCelda(2,700).agregar(prueba3);
+				enemigos.add(prueba3);
+				
+				Enemigo prueba4=new CaminanteCaballo(mapa.getCelda(3,700),true);
+				mapa.getCelda(3,700).agregar(prueba4);
+				enemigos.add(prueba4);
+				
+				Enemigo prueba2=new Oso(mapa.getCelda(4,700),true);
+				mapa.getCelda(4,700).agregar(prueba2);
+				enemigos.add(prueba2);
+				
+				Enemigo prueba=new DragonMuerto(mapa.getCelda(0,700),true);
+				mapa.getCelda(0,700).agregar(prueba);
+				enemigos.add(prueba);
+				
+				Random r1 = new Random();
+				
+				int Rnd1 = r1.nextInt(5)+1;
+				int Rnd2 = r1.nextInt(700);
+				if(Rnd2<100)
+					Rnd2+=100;
+				
+				Objeto prueba7 = new Charco(mapa.getCelda(Rnd1,Rnd2));
+				mapa.getCelda(Rnd1,Rnd2).agregar(prueba7);
+				
+				Rnd1 = r1.nextInt(5)+1;
+				Rnd2 = r1.nextInt(700);
+				if(Rnd2<100)
+					Rnd2+=100;
+				
+				Objeto prueba8 = new Arbol(mapa.getCelda(Rnd1,Rnd2));
+				mapa.getCelda(Rnd1,Rnd2).agregar(prueba8);
+				
+				//FIN PRUEBA
+		gui = new GUI(this);
 		refrescar();
-		
 	}
 	
-	public Juego(GUI g,int f, int c)
+	public Juego(Nivel n, int m, int p,int f, int c)
 	{
-		gui = g;
-		mapa = new Mapa(f,c,this);
-		
-		//nivel = new Nivel1();
-		
+		terminar = false;
 		cantFilas=f;
-		cantColumnas=c;
-		puntos=0;
-		monedas=0;
+		cantColumnas=c*80;
+		mapa = new Mapa(cantFilas,cantColumnas,this);
 		
-		refrescar();
-		
-	}
-	
-	public Juego(GUI g,Nivel n)
-	{
-		gui = g;
-		mapa = new Mapa(6,10,this);
 		nivel = n;
-		cantFilas=6;
-		cantColumnas=10;
-		puntos=0;
-		monedas=0;
 		
-		refrescar();
-	}
-	
-	public Juego(GUI g, int f, int c, Nivel n)
-	{
-		gui = g;
-		mapa = new Mapa(f,c,this);
-		nivel = n;
-		cantFilas=f;
-		cantColumnas=c;
-		puntos=0;
-		monedas=0;
-		
+		puntos=p;
+		monedas=m;
+		enemigos = new Coleccion<Enemigo>();
+		gui = new GUI(this);
 		refrescar();
 	}
 	
@@ -150,7 +121,10 @@ public class Juego {
 	
 	public void agregar(Contenido c)
 	{
-		gui.agregar(c.getGrafico());
+		if(c.getGrafico()!=null)
+		{
+			gui.agregar(c.getGrafico());
+		}
 	}
 	
 	public void agregarEnemigo(Enemigo e)
@@ -189,11 +163,11 @@ public class Juego {
 			{
 				if(gano)
 				{
-					new GUI();
+					new Juego(nivel,monedas,puntos,cantFilas,cantColumnas/80);
 				}
 				else
 				{
-					new GUI();
+					new Juego(nivel,monedas,puntos,cantFilas,cantColumnas/80);
 				}
 			}
 			else

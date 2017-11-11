@@ -4,7 +4,7 @@ public class TEST {
 
 	public static void main(String[] args) {
 		
-		GUI g = new GUI();
+		Juego j = new Juego(6,10);
 	}
 
 }

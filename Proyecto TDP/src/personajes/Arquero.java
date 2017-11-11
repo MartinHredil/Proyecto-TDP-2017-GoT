@@ -10,6 +10,7 @@ public class Arquero extends Personaje{
 	public Arquero(Celda c)
 	{
 		super(c);
+		costo=25;
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Arquero.gif")));
 		generarFlechas = new GenerarFlechasArquero(this);
 		generarFlechas.start();

@@ -35,9 +35,9 @@ public class GUI extends JFrame{
 	protected JButton market[];
 	protected String nombres[];
 	
-	public GUI()
+	public GUI(Juego j)
 	{
-		juego = new Juego(this);
+		juego = j;
 		mapa = juego.getMapa();
 		cantFilas = juego.getFilas();
 		cantColumnas = juego.getColumnas();
@@ -185,7 +185,10 @@ public class GUI extends JFrame{
 	
 	public void agregar(JLabel j)
 	{
-		panelJuego.add(j);
+		if(j!=null)
+		{
+			panelJuego.add(j);
+		}
 	}
 	
 	public boolean terminar(boolean gano)

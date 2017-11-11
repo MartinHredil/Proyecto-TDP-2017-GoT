@@ -8,7 +8,7 @@ public class BolaFuego extends DisparoPersonaje{
 	public BolaFuego(Celda c)
 	{
 		super(c);
-		danioAtaque=30;
+		danioAtaque=300;
 		velocidad = 1;
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/BolaDeFuego.gif")));
 		miCelda.getMapa().getJuego().agregar(this);

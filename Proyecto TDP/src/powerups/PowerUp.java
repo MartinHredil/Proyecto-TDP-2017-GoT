@@ -28,7 +28,7 @@ public abstract class PowerUp extends Contenido{
 		int cont = 0;
 		Contenido aux;
 		
-		while(cont<40 && !parar)
+		while(cont<80 && !parar)
 		{
 			cont++;
 			sig = miCelda.getMapa().getCelda(miCelda.getFila(), miCelda.getColumna()-cont);
@@ -56,7 +56,7 @@ public abstract class PowerUp extends Contenido{
 		if(comprobar)
 		{
 			cont=0;
-			while(cont<40 && !parar)
+			while(cont<80 && !parar)
 			{
 				cont++;
 				sig = miCelda.getMapa().getCelda(miCelda.getFila(), miCelda.getColumna()+cont);

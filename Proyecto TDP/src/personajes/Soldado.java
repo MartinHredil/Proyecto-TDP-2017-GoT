@@ -9,8 +9,9 @@ public class Soldado extends Personaje{
 	public Soldado(Celda c)
 	{
 		super(c);
+		costo=15;
 		vida = 1000;
-		danioAtaque=5;
+		danioAtaque=2;
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/SoldadoEsperando.gif")));
 	}
 	

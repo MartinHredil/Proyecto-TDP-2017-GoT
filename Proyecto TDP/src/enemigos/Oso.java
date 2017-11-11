@@ -9,10 +9,10 @@ public class Oso extends Enemigo {
 	{
 		super(c,b);
 		
-		vida=10;
-		danioAtaque=20;
+		vida=700;
+		danioAtaque=3;
 		
-		velocidad = 4;
+		velocidad = 10;
 		monedas = 200;
 		puntos = 300;
 		

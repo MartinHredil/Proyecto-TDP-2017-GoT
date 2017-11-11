@@ -9,6 +9,7 @@ public class Lobo extends Personaje{
 	public Lobo(Celda c)
 	{
 		super(c);
+		costo=10;
 		vida = 1000;
 		danioAtaque=5;
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/LoboEsperando.gif")));

@@ -8,7 +8,7 @@ public class BolaFuegoCongelado extends DisparoEnemigo{
 	public BolaFuegoCongelado(Celda c)
 	{
 		super(c);
-		danioAtaque=30;
+		danioAtaque=300;
 		velocidad = 1;
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/BolaDeFuegoCongelado.gif")));
 		miCelda.getMapa().getJuego().agregar(this);

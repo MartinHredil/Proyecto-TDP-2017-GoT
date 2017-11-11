@@ -9,10 +9,10 @@ public class Caminante extends Enemigo {
 	{
 		super(c,b);
 		
-		vida=10;
-		danioAtaque=20;
+		vida=1500;
+		danioAtaque=4;
 		
-		velocidad = 6;
+		velocidad = 10;
 		monedas = 400;
 		puntos = 600;
 		
