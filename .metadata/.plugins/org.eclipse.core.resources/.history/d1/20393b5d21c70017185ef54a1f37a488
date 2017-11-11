@@ -10,6 +10,7 @@ public class Ballesta extends Personaje{
 	public Ballesta(Celda c)
 	{
 		super(c);
+		costo=50;
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/BallestaEsperando.gif")));
 		generarFlechas = new GenerarFlechasBallesta(this);
 		generarFlechas.start();

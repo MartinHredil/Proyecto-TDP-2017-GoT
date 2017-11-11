@@ -10,6 +10,7 @@ public class Dragon extends Personaje {
 	{
 		super(c);
 		vida = 100;
+		costo=100;
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Dragon.gif")));
 		generarBolaFuego = new GenerarBolaFuego(this);
 		generarBolaFuego.start();
