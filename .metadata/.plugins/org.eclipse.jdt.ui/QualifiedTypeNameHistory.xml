@@ -7,7 +7,6 @@
 <fullyQualifiedTypeName name="personajes.Arquero"/>
 <fullyQualifiedTypeName name="juego.GenerarFlechas"/>
 <fullyQualifiedTypeName name="disparos.DisparoPersonaje"/>
-<fullyQualifiedTypeName name="javax.swing.JLabel"/>
 <fullyQualifiedTypeName name="visitor.VisitorPowerUp"/>
 <fullyQualifiedTypeName name="herramientas.Director"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
@@ -20,4 +19,5 @@
 <fullyQualifiedTypeName name="juego.Juego"/>
 <fullyQualifiedTypeName name="herramientas.Coleccion"/>
 <fullyQualifiedTypeName name="mapa.Celda"/>
+<fullyQualifiedTypeName name="javax.swing.JLabel"/>
 </qualifiedTypeNameHistroy>
