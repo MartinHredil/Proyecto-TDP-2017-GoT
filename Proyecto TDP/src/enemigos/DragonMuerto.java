@@ -12,11 +12,11 @@ public class DragonMuerto extends Enemigo {
 	{
 		super(c,b);
 		
-		vida=10;
-		danioAtaque=20;
+		vida=2500;
+		danioAtaque=0;
 		
 		velocidad = 10;
-		monedas = 300;
+		monedas = 75;
 		puntos = 600;
 		
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/DragonMuerto.gif")));

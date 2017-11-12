@@ -145,14 +145,14 @@ public class GUI extends JFrame{
 		etiquetaMarket = new JLabel("MarketPlace");
 		etiquetaMarket.setBounds(120, 0, 500, 25);
 		
-		etiquetaInformacion = new JLabel("NO DISPONE DE DINERO SUFICIENTE");
+		etiquetaInformacion = new JLabel("");
 		etiquetaInformacion.setBounds(5, 140, 500, 25);
 
 		etiquetaPuntos = new JLabel("Puntos: "+juego.getPuntos());
 		etiquetaPuntos.setBounds(ancho-100,0 , 80, 20);
 		
 		etiquetaMonedas = new JLabel("Monedas: "+juego.getMonedas());
-		etiquetaMonedas.setBounds(ancho-200,0 , 80, 20);
+		etiquetaMonedas.setBounds(ancho-220,0 , 80, 20);
 		
 		panelOpciones.add(etiquetaMarket);
 		panelOpciones.add(etiquetaInformacion);
@@ -272,35 +272,45 @@ public class GUI extends JFrame{
         		Celda aux = mapa.getCelda(i, j);
         		Contenido nuevo=null;
     			switch (fabricado) {
-                case 0:  nuevo = fabricaPersonajes.crearSoldado(aux);
+                case 0:  if(50<=juego.getMonedas()) nuevo = fabricaPersonajes.crearSoldado(aux);
                          break;
-                case 1:  nuevo = fabricaPersonajes.crearArquero(aux);
+                case 1:  if(50<=juego.getMonedas()) nuevo = fabricaPersonajes.crearArquero(aux);
                          break;
-                case 2:  nuevo = fabricaPersonajes.crearDragon(aux);
+                case 2:  if(150<=juego.getMonedas()) nuevo = fabricaPersonajes.crearDragon(aux);
                          break;
-                case 3:  nuevo = fabricaPersonajes.crearLobo(aux);
+                case 3:  if(60<=juego.getMonedas()) nuevo = fabricaPersonajes.crearLobo(aux);
                 		 break;
-                case 4:  nuevo = fabricaPersonajes.crearBallesta(aux);
+                case 4:  if(100<=juego.getMonedas()) nuevo = fabricaPersonajes.crearBallesta(aux);
        		 			 break;
-                case 5:  nuevo = fabricaPersonajes.crearTorre(aux);
+                case 5:  if(125<=juego.getMonedas()) nuevo = fabricaPersonajes.crearTorre(aux);
 		 			 	 break;
-                case 6:  nuevo = fabricaObjetos.crearPiedra(aux);
+                case 6:  if(40<=juego.getMonedas()) nuevo = fabricaObjetos.crearPiedra(aux);
                 		 break;
-                case 7:  nuevo = fabricaObjetos.crearMuralla(aux);
+                case 7:  if(80<=juego.getMonedas()) nuevo = fabricaObjetos.crearMuralla(aux);
                 		 break;
-                case 8:  nuevo = fabricaObjetos.crearBomba(aux);
+                case 8:  if(50<=juego.getMonedas()) nuevo = fabricaObjetos.crearBomba(aux);
        		 			 break;
-                case 9:  nuevo = fabricaObjetos.crearMuro(aux);
+                case 9:  if(160<=juego.getMonedas()) nuevo = fabricaObjetos.crearMuro(aux);
 		 			 break;
             	}
     			
-        		if(!aux.ocupado(nuevo.getPosicion()))
-        		{
-        			aux.agregar(nuevo);
-        			panelJuego.add(nuevo.getGrafico());
-        		}
+    			if(nuevo==null)
+    			{
+    				etiquetaInformacion.setText("NO DISPONE DE DINERO SUFICIENTE");
+    			}
+    			else
+    			{
+    				etiquetaInformacion.setText("");
+    				juego.decrementarMonedas(nuevo.getCosto());
+    				if(!aux.ocupado(nuevo.getPosicion()))
+            		{
+            			aux.agregar(nuevo);
+            			panelJuego.add(nuevo.getGrafico());
+            		}
+    			}
         		
-        		fabricado=-1;	
+        		fabricado=-1;
+        		nuevo=null;
         	}
         }
         

@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 public abstract class Contenido {
 	
 	protected Celda miCelda;
-	protected int vida, posicion;
+	protected int vida, posicion,costo;
 	protected JLabel grafico;
 	
 	public Contenido(Celda c)
@@ -13,6 +13,7 @@ public abstract class Contenido {
 		miCelda = c;
 		vida = 0;
 		grafico = new JLabel();
+		costo = 0;
 	}
 	
 	public Celda getCelda()
@@ -28,6 +29,11 @@ public abstract class Contenido {
 	public JLabel getGrafico()
 	{
 		return grafico;
+	}
+	
+	public int getCosto()
+	{
+		return costo;
 	}
 	
 	public int getPosicion()

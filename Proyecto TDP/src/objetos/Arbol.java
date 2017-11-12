@@ -8,7 +8,7 @@ public class Arbol extends Objeto {
 	public Arbol(Celda c)
 	{
 		super(c);
-		vida=0;
+		vida=500;
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Arbol.gif")));
 	}
 }

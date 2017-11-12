@@ -13,7 +13,7 @@ public class CaminanteCaballo extends Enemigo {
 		danioAtaque=4;
 		
 		velocidad = 10;
-		monedas = 400;
+		monedas = 60;
 		puntos = 600;
 		
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/CaminanteCaballoCaminando.gif")));

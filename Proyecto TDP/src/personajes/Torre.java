@@ -10,6 +10,8 @@ public class Torre extends Personaje{
 	public Torre(Celda c)
 	{
 		super(c);
+		vida=800;
+		costo=125;
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Torre.png")));
 		generarFlechas = new GenerarFlechasTorre(this);
 		generarFlechas.start();

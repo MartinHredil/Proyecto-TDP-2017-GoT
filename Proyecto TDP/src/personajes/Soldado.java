@@ -11,6 +11,7 @@ public class Soldado extends Personaje{
 		super(c);
 		vida = 1000;
 		danioAtaque=2;
+		costo = 50;
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/SoldadoEsperando.gif")));
 	}
 	

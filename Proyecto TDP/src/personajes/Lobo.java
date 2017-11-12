@@ -10,7 +10,8 @@ public class Lobo extends Personaje{
 	{
 		super(c);
 		vida = 1000;
-		danioAtaque=5;
+		costo=60;
+		danioAtaque=3;
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/LoboEsperando.gif")));
 	}
 	

@@ -1,0 +1,34 @@
+package personajes;
+
+import javax.swing.ImageIcon;
+import mapa.*;
+
+public class Torre extends Personaje{
+
+	protected GenerarFlechasTorre generarFlechas;
+	
+	public Torre(Celda c)
+	{
+		super(c);
+		vida=800;
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Torre.png")));
+		generarFlechas = new GenerarFlechasTorre(this);
+		generarFlechas.start();
+	}
+
+	public void destruir()
+	{
+		generarFlechas.terminate();
+		super.destruir();
+	}
+	
+	public void atacar()
+	{
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Torre.png")));
+	}
+	
+	public void esperar()
+	{
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Torre.png")));
+	}
+}

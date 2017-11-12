@@ -28,44 +28,19 @@ public abstract class PowerUp extends Contenido{
 		int cont = 0;
 		Contenido aux;
 		
-		while(cont<80 && !parar)
+		if(miCelda!=null)
 		{
-			cont++;
-			sig = miCelda.getMapa().getCelda(miCelda.getFila(), miCelda.getColumna()-cont);
-			if(sig!=null)
-			{
-				Iterator<Contenido> it = sig.getContenido();
-				while(it.hasNext())
-				{
-					aux = it.next();
-					if(aux!=null && aux.aceptar(miVisitor))
-					{
-						comprobar = false;
-						parar=true;
-					}
-				}
-			}
-			else
-			{
-				parar = true;
-			}
-		}
-		
-		parar=false;
-		
-		if(comprobar)
-		{
-			cont=0;
 			while(cont<80 && !parar)
 			{
 				cont++;
-				sig = miCelda.getMapa().getCelda(miCelda.getFila(), miCelda.getColumna()+cont);
+				sig = miCelda.getMapa().getCelda(miCelda.getFila(), miCelda.getColumna()-cont);
 				if(sig!=null)
 				{
 					Iterator<Contenido> it = sig.getContenido();
 					while(it.hasNext())
 					{
-						if(it.next().aceptar(miVisitor))
+						aux = it.next();
+						if(aux!=null && aux.aceptar(miVisitor))
 						{
 							comprobar = false;
 							parar=true;
@@ -74,14 +49,42 @@ public abstract class PowerUp extends Contenido{
 				}
 				else
 				{
-					parar=true;
+					parar = true;
 				}
 			}
-		}
-		
-		if(!comprobar)
-		{
-			destruir();
+			
+			parar=false;
+			
+			if(comprobar)
+			{
+				cont=0;
+				while(cont<80 && !parar)
+				{
+					cont++;
+					sig = miCelda.getMapa().getCelda(miCelda.getFila(), miCelda.getColumna()+cont);
+					if(sig!=null)
+					{
+						Iterator<Contenido> it = sig.getContenido();
+						while(it.hasNext())
+						{
+							if(it.next().aceptar(miVisitor))
+							{
+								comprobar = false;
+								parar=true;
+							}
+						}
+					}
+					else
+					{
+						parar=true;
+					}
+				}
+			}
+			
+			if(!comprobar)
+			{
+				destruir();
+			}
 		}
 	}
 	

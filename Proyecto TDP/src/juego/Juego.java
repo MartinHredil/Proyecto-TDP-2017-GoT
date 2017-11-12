@@ -27,59 +27,17 @@ public class Juego {
 		cantColumnas=c*80;
 		mapa = new Mapa(cantFilas,cantColumnas,this);
 		puntos=0;
-		monedas=200;
 		enemigos = new Coleccion<Enemigo>();
 		
 		nivel = new Nivel1(this);
+		monedas = nivel.getMonedasIniciales();
 		
-		/*//PRUEBA
-		
-		
-				Enemigo prueba6=new Muerto(mapa.getCelda(1,700),false);
-				mapa.getCelda(1,700).agregar(prueba6);
-				enemigos.add(prueba6);
-				
-				Enemigo prueba3=new Caminante(mapa.getCelda(2,700),false);
-				mapa.getCelda(2,700).agregar(prueba3);
-				enemigos.add(prueba3);
-				
-				Enemigo prueba4=new CaminanteCaballo(mapa.getCelda(3,700),true);
-				mapa.getCelda(3,700).agregar(prueba4);
-				enemigos.add(prueba4);
-				
-				Enemigo prueba2=new Oso(mapa.getCelda(4,700),true);
-				mapa.getCelda(4,700).agregar(prueba2);
-				enemigos.add(prueba2);
-				
-				Enemigo prueba=new DragonMuerto(mapa.getCelda(0,700),true);
-				mapa.getCelda(0,700).agregar(prueba);
-				enemigos.add(prueba);
-				
-				Random r1 = new Random();
-				
-				int Rnd1 = r1.nextInt(5)+1;
-				int Rnd2 = r1.nextInt(700);
-				if(Rnd2<100)
-					Rnd2+=100;
-				
-				Objeto prueba7 = new Charco(mapa.getCelda(Rnd1,Rnd2));
-				mapa.getCelda(Rnd1,Rnd2).agregar(prueba7);
-				
-				Rnd1 = r1.nextInt(5)+1;
-				Rnd2 = r1.nextInt(700);
-				if(Rnd2<100)
-					Rnd2+=100;
-				
-				Objeto prueba8 = new Arbol(mapa.getCelda(Rnd1,Rnd2));
-				mapa.getCelda(Rnd1,Rnd2).agregar(prueba8);
-				
-				//FIN PRUEBA*/
 		gui = new GUI(this);
 		nivel.start();
 		refrescar();
 	}
 	
-	public Juego(Nivel n, int m, int p,int f, int c)
+	public Juego(Nivel n,int p,int f, int c)
 	{
 		terminar = false;
 		cantFilas=f;
@@ -90,7 +48,7 @@ public class Juego {
 		n.setJuego(this);
 		
 		puntos=p;
-		monedas=m;
+		monedas=nivel.getMonedasIniciales();
 		enemigos = new Coleccion<Enemigo>();
 		gui = new GUI(this);
 		nivel.start();
@@ -149,6 +107,11 @@ public class Juego {
 		monedas+=m;
 	}
 	
+	public void decrementarMonedas(int m)
+	{
+		monedas-=m;
+	}
+	
 	public void incrementarPuntos(int p)
 	{
 		puntos+=p;
@@ -159,7 +122,6 @@ public class Juego {
 		if(!terminar)
 		{
 			terminar = true;
-			int mon = monedas;
 			int pun = puntos;
 			refresco.terminate();
 			boolean JugarDeNuevo = gui.terminar(gano);
@@ -168,11 +130,11 @@ public class Juego {
 			{
 				if(gano)
 				{
-					new Juego(nivel.siguienteNivel(),mon,pun,cantFilas,cantColumnas/80);
+					new Juego(nivel.siguienteNivel(),pun,cantFilas,cantColumnas/80);
 				}
 				else
 				{
-					new Juego(nivel.reiniciarNivel(),mon,pun,cantFilas,cantColumnas/80);
+					new Juego(nivel.reiniciarNivel(),0,cantFilas,cantColumnas/80);
 				}
 			}
 			else

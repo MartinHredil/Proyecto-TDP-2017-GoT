@@ -13,7 +13,7 @@ public class Muerto extends Enemigo {
 		danioAtaque=2;
 		
 		velocidad = 10;
-		monedas = 200;
+		monedas = 40;
 		puntos = 300;
 		
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/MuertoCaminando.gif")));

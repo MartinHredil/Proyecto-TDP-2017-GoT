@@ -10,7 +10,8 @@ import mapa.Celda;
 		public Muro(Celda c)
 		{
 			super(c);
-			vida=0;
+			vida=1500;
+			costo=160;
 			grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/MuroParte2.png")));
 			
 			int fila = miCelda.getFila();

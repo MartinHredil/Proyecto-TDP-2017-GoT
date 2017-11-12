@@ -18,7 +18,7 @@ public class VisitorEnemigo implements Visitor {
 	
 	public boolean visitarEnemigo(Enemigo e)
 	{
-		return true;
+		return false;
 	}
 	
 	public boolean visitarPersonaje(Personaje p)
@@ -49,12 +49,21 @@ public class VisitorEnemigo implements Visitor {
 		return true;
 	}
 	
-	public boolean visitarObjeto(Objeto p)
+	public boolean visitarObjeto(Objeto o)
 	{
 		if(enemigo.getCaminando())
 		{
 			enemigo.atacar();
 		}
+		
+		o.decrementarVida(enemigo.getDanioAtaque());
+		
+		if(o.getVida()<=0)
+		{
+			enemigo.caminar();
+			o.destruir();
+		}
+		
 		return true;
 	}
 	

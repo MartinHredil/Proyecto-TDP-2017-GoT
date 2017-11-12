@@ -8,7 +8,10 @@ public class Charco extends Objeto {
 	public Charco(Celda c)
 	{
 		super(c);
-		vida=0;
+		vida=Integer.MAX_VALUE;
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Charco.png")));
+		
+		TemporalizadorCharco t = new TemporalizadorCharco(this);
+		t.start();
 	}
 }

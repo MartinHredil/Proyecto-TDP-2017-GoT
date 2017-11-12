@@ -99,6 +99,7 @@ public abstract class Enemigo extends Contenido {
 			
 			if(mover)
 			{
+				caminar();
 				miCelda.quitar(posicion);
 				miCelda = miCelda.getIzquierda();
 				miCelda.agregar(this);

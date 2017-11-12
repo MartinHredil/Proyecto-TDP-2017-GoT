@@ -8,7 +8,7 @@ public class Bomba extends Objeto {
 	public Bomba(Celda c)
 	{
 		super(c);
-		vida=0;
+		vida=Integer.MAX_VALUE;
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Bomba.gif")));
 	}
 }

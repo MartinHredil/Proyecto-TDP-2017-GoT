@@ -17,6 +17,7 @@ public class Nivel1 extends Nivel {
 	public Nivel1(Juego j)
 	{
 		juego = j;
+		monedasIniciales=200;
 		Oleadas = new Coleccion<String>();
 		String s = "MOMOMMOODOOMMCMMMHMMMM";
 		Oleadas.add(s);
@@ -48,7 +49,7 @@ public class Nivel1 extends Nivel {
 		try {
 			for(String s:Oleadas)
 			{
-				sleep(10000);
+				sleep(5000);
 				for(int i =0;i<s.length();i++)
 				{
 					Rnd1 = r1.nextInt(juego.getFilas());
@@ -77,7 +78,7 @@ public class Nivel1 extends Nivel {
 					celda.agregar(nuevo);
 					juego.agregar(nuevo);
 					juego.agregarEnemigo(nuevo);
-					sleep(5000);
+					sleep(8000);
 				}
 				
 			}
