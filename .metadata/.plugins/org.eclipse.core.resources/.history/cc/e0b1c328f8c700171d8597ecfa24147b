@@ -50,7 +50,7 @@ public class GUI extends JFrame{
 		fabricaPersonajes = new FabricaPersonal();
 		fabricaObjetos =new FabricaCosas();
 		fabricado=-1;
-		cantidadBombas=1;
+		cantidadBombas=0;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
@@ -262,9 +262,9 @@ public class GUI extends JFrame{
 		return respuesta;
 	}
 	
-	public void incrementarBomba()
+	public void nuevoJuego()
 	{
-		cantidadBombas++;
+		
 	}
 	
 	private class OyenteAgregar implements ActionListener {
@@ -303,9 +303,8 @@ public class GUI extends JFrame{
                 		 break;
                 case 8:  if(160<=juego.getMonedas()) nuevo = fabricaObjetos.crearMuro(aux);
        		 			 break;
-                case 9:  nuevo = fabricaObjetos.crearBomba(aux);
-                		 cantidadBombas--;
-		 			 	 break;
+                case 9:  if(0<=juego.getMonedas()) nuevo = fabricaObjetos.crearBomba(aux);
+		 			 break;
             	}
     			
     			if(nuevo==null)

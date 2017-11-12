@@ -50,7 +50,7 @@ public class GUI extends JFrame{
 		fabricaPersonajes = new FabricaPersonal();
 		fabricaObjetos =new FabricaCosas();
 		fabricado=-1;
-		cantidadBombas=1;
+		cantidadBombas=0;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
@@ -262,9 +262,9 @@ public class GUI extends JFrame{
 		return respuesta;
 	}
 	
-	public void incrementarBomba()
+	public void nuevoJuego()
 	{
-		cantidadBombas++;
+		
 	}
 	
 	private class OyenteAgregar implements ActionListener {
@@ -285,27 +285,26 @@ public class GUI extends JFrame{
         		Celda aux = mapa.getCelda(i, j);
         		Contenido nuevo=null;
     			switch (fabricado) {
-                case 0:  if(40<=juego.getMonedas()) nuevo = fabricaPersonajes.crearLobo(aux);
+                case 0:  if(50<=juego.getMonedas()) nuevo = fabricaPersonajes.crearSoldado(aux);
                          break;
-                case 1:  if(50<=juego.getMonedas()) nuevo = fabricaPersonajes.crearSoldado(aux);
+                case 1:  if(50<=juego.getMonedas()) nuevo = fabricaPersonajes.crearArquero(aux);
                          break;
-                case 2:  if(50<=juego.getMonedas()) nuevo = fabricaPersonajes.crearArquero(aux);
+                case 2:  if(150<=juego.getMonedas()) nuevo = fabricaPersonajes.crearDragon(aux);
                          break;
-                case 3:  if(100<=juego.getMonedas()) nuevo = fabricaPersonajes.crearBallesta(aux);
+                case 3:  if(60<=juego.getMonedas()) nuevo = fabricaPersonajes.crearLobo(aux);
                 		 break;
-                case 4:  if(125<=juego.getMonedas()) nuevo = fabricaPersonajes.crearTorre(aux);
+                case 4:  if(100<=juego.getMonedas()) nuevo = fabricaPersonajes.crearBallesta(aux);
        		 			 break;
-                case 5:  if(150<=juego.getMonedas()) nuevo = fabricaPersonajes.crearDragon(aux);
+                case 5:  if(125<=juego.getMonedas()) nuevo = fabricaPersonajes.crearTorre(aux);
 		 			 	 break;
                 case 6:  if(40<=juego.getMonedas()) nuevo = fabricaObjetos.crearPiedra(aux);
                 		 break;
                 case 7:  if(80<=juego.getMonedas()) nuevo = fabricaObjetos.crearMuralla(aux);
                 		 break;
-                case 8:  if(160<=juego.getMonedas()) nuevo = fabricaObjetos.crearMuro(aux);
+                case 8:  if(50<=juego.getMonedas()) nuevo = fabricaObjetos.crearBomba(aux);
        		 			 break;
-                case 9:  nuevo = fabricaObjetos.crearBomba(aux);
-                		 cantidadBombas--;
-		 			 	 break;
+                case 9:  if(160<=juego.getMonedas()) nuevo = fabricaObjetos.crearMuro(aux);
+		 			 break;
             	}
     			
     			if(nuevo==null)

@@ -117,11 +117,6 @@ public class Juego {
 		puntos+=p;
 	}
 	
-	public void incrementarBomba()
-	{
-		gui.incrementarBomba();
-	}
-	
 	public void terminarJuego(boolean gano)
 	{
 		if(!terminar)

@@ -17,8 +17,8 @@
 <fullyQualifiedTypeName name="objetos.Arbol"/>
 <fullyQualifiedTypeName name="juego.Juego"/>
 <fullyQualifiedTypeName name="herramientas.Coleccion"/>
-<fullyQualifiedTypeName name="mapa.Celda"/>
 <fullyQualifiedTypeName name="javax.swing.JLabel"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="mapa.Celda"/>
 </qualifiedTypeNameHistroy>

@@ -304,7 +304,6 @@ public class GUI extends JFrame{
                 case 8:  if(160<=juego.getMonedas()) nuevo = fabricaObjetos.crearMuro(aux);
        		 			 break;
                 case 9:  nuevo = fabricaObjetos.crearBomba(aux);
-                		 cantidadBombas--;
 		 			 	 break;
             	}
     			
