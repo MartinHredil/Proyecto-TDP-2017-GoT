@@ -5,7 +5,6 @@ INDEX VERSION 1.130+D:\Tincho\Documentos\GitHub\Proyecto-TDP-2017-GoT\.metadata\
 3608585563.index
 1056031855.index
 4005617011.index
-3890279950.index
 1924480154.index
 1686655237.index
 1654674800.index
