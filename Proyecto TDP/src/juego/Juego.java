@@ -29,7 +29,7 @@ public class Juego {
 		puntos=0;
 		enemigos = new Coleccion<Enemigo>();
 		
-		nivel = new Nivel4(this);
+		nivel = new Nivel1(this);
 		monedas = nivel.getMonedasIniciales();
 		
 		gui = new GUI(this);
@@ -115,6 +115,11 @@ public class Juego {
 	public void incrementarPuntos(int p)
 	{
 		puntos+=p;
+	}
+	
+	public void incrementarBomba()
+	{
+		gui.incrementarBomba();
 	}
 	
 	public void terminarJuego(boolean gano)

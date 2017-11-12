@@ -26,6 +26,11 @@ public class Director {
 			toReturn = new Proteccion(c);
 			break;
 		}
+		case 4:
+		{
+			toReturn = new BonusBomba(c);
+			break;
+		}
 		}
 		return toReturn;
 	}
