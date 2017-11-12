@@ -9,7 +9,6 @@
 <fullyQualifiedTypeName name="disparos.DisparoPersonaje"/>
 <fullyQualifiedTypeName name="visitor.VisitorPowerUp"/>
 <fullyQualifiedTypeName name="herramientas.Director"/>
-<fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="powerups.PowerUp"/>
 <fullyQualifiedTypeName name="mapa.Contenido"/>
 <fullyQualifiedTypeName name="personajes.Personaje"/>
@@ -21,4 +20,5 @@
 <fullyQualifiedTypeName name="mapa.Celda"/>
 <fullyQualifiedTypeName name="javax.swing.JLabel"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
 </qualifiedTypeNameHistroy>

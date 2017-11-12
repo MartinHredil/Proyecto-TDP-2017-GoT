@@ -149,10 +149,10 @@ public class GUI extends JFrame{
 		etiquetaInformacion.setBounds(5, 140, 500, 25);
 
 		etiquetaPuntos = new JLabel("Puntos: "+juego.getPuntos());
-		etiquetaPuntos.setBounds(ancho-100,0 , 80, 20);
+		etiquetaPuntos.setBounds(ancho-100,0 , 100, 20);
 		
 		etiquetaMonedas = new JLabel("Monedas: "+juego.getMonedas());
-		etiquetaMonedas.setBounds(ancho-220,0 , 80, 20);
+		etiquetaMonedas.setBounds(ancho-220,0 , 100, 20);
 		
 		panelOpciones.add(etiquetaMarket);
 		panelOpciones.add(etiquetaInformacion);

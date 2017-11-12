@@ -1,5 +1,7 @@
 package objetos;
 
+import java.util.Random;
+
 public class TemporalizadorCharco extends Thread{
 
 	protected Charco charco;
@@ -12,7 +14,12 @@ public class TemporalizadorCharco extends Thread{
 	public void run()
 	{
 		try {
-			sleep(20000);
+			
+			Random r = new Random();
+			
+			int s = r.nextInt(20);
+			s = (s+20)*1000;
+			sleep(s);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
