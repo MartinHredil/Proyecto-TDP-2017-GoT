@@ -45,6 +45,7 @@ public class GUI extends JFrame{
 		alto = cantFilas * 80;
 		
 		ancho = cantColumnas;
+		//ancho = cantColumnas * 80;
 		
 		fabricaPersonajes = new FabricaPersonal();
 		fabricaObjetos =new FabricaCosas();
@@ -101,6 +102,8 @@ public class GUI extends JFrame{
 		panelOpciones.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelOpciones.setBounds(0,0, ancho, 160);
 		
+		
+		
 		int i;
 		nombres = new String[10];
 		market = new JButton[10];
@@ -112,6 +115,7 @@ public class GUI extends JFrame{
 		nombres[3]="BallestaQuieto.png";
 		nombres[4]="Torre60.png";
 		nombres[5]="DragonQuieto.png";
+		
 		
 		//OBJETOS
 		nombres[6]="Piedra.png";

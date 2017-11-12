@@ -10,7 +10,7 @@ public class BonusBomba extends PowerUp {
 	public BonusBomba(Celda c)
 	{
 		super(c);
-		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/PWVioleta.gif")));
+		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/PWAzul.gif")));
 	}
 	
 	public void getPowerUp(Personaje p)
