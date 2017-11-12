@@ -1,5 +1,4 @@
 package personajes;
-
 import mapa.*;
 import visitor.*;
 

@@ -34,6 +34,5 @@ public class Muerto extends Enemigo {
 	{
 		caminando=false;
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/MuertoAtacando.gif")));
-	}
-	
+	}	
 }

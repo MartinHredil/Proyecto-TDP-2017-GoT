@@ -1,5 +1,4 @@
 package objetos;
-
 import java.util.Random;
 
 public class TemporalizadorCharco extends Thread{

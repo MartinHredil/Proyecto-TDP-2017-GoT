@@ -3,7 +3,6 @@ package disparos;
 public class MoverDisparoEnemigo extends Thread {
 
 	protected volatile boolean execute;
-	
 	protected DisparoEnemigo de;
 	
 	public MoverDisparoEnemigo(DisparoEnemigo d)

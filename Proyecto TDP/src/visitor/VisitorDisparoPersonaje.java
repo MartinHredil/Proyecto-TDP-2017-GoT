@@ -6,7 +6,6 @@ import powerups.PowerUp;
 import disparos.DisparoEnemigo;
 import disparos.DisparoPersonaje;
 
-
 public class VisitorDisparoPersonaje implements Visitor {
 
 	protected DisparoPersonaje disparoPersonaje;
@@ -48,5 +47,4 @@ public class VisitorDisparoPersonaje implements Visitor {
 	{
 		return false;
 	}
-	
 }

@@ -1,5 +1,4 @@
 package objetos;
-
 import javax.swing.ImageIcon;
 import mapa.Celda;
 

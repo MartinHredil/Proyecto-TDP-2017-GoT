@@ -1,5 +1,4 @@
 package niveles;
-
 import juego.Juego;
 
 public abstract class Nivel extends Thread {

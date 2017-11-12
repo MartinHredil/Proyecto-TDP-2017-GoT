@@ -2,8 +2,6 @@ package herramientas;
 import mapa.Celda;
 import powerups.*;
 
-/* Patron de Diseño Builder*/
-
 public class Director {
 
 	public PowerUp crearPowerUP(Celda c,int opcion)

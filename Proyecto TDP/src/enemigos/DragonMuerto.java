@@ -1,5 +1,4 @@
 package enemigos;
-
 import javax.swing.*;
 
 import mapa.*;

@@ -33,5 +33,4 @@ public class Oso extends Enemigo {
 		caminando=false;
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/OsoAtacando.gif")));
 	}
-	
 }

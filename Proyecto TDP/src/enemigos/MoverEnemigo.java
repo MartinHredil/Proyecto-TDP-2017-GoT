@@ -3,7 +3,6 @@ package enemigos;
 public class MoverEnemigo extends Thread {
 
 	protected volatile boolean execute;
-	
 	protected Enemigo enemigo;
 	
 	public MoverEnemigo(Enemigo e)

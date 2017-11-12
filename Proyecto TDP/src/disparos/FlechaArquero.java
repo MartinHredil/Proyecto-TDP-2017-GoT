@@ -4,7 +4,6 @@ import mapa.*;
 
 public class FlechaArquero extends DisparoPersonaje{
 	
-	
 	public FlechaArquero(Celda c)
 	{
 		super(c);

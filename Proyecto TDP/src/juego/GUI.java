@@ -235,17 +235,17 @@ public class GUI extends JFrame{
 		
 		if(gano)
 		{
-			int seleccion = JOptionPane.showOptionDialog( null,"FELICIDADES, GANASTE",
+			int seleccion = JOptionPane.showOptionDialog( null,"¡GANASTE! :D",
 					  "Selector de opciones",JOptionPane.YES_NO_CANCEL_OPTION,
 					   JOptionPane.QUESTION_MESSAGE,null,// null para icono por defecto.
-					  new Object[] { "Nivel Siguiente", "Cerrar"},"Nivel Siguiente");
+					  new Object[] { "Siguiente Nivel", "Cerrar"},"Siguiente Nivel");
 					      
 			if(seleccion==0) respuesta = true;
 			else respuesta = false;
 		}
 		else
 		{
-			int seleccion = JOptionPane.showOptionDialog( null,"USTED PERDIO",
+			int seleccion = JOptionPane.showOptionDialog( null,"¡PERDISTE! :(",
 					  "Selector de opciones",JOptionPane.YES_NO_CANCEL_OPTION,
 					   JOptionPane.QUESTION_MESSAGE,null,// null para icono por defecto.
 					  new Object[] { "Jugar de Nuevo", "Cerrar"},"Jugar de Nuevo");
@@ -320,7 +320,6 @@ public class GUI extends JFrame{
     			}
         		
         		fabricado=-1;
-        		nuevo=null;
         	}
         }
         

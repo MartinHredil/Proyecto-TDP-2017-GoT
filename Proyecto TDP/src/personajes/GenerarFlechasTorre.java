@@ -1,6 +1,4 @@
 package personajes;
-import personajes.Ballesta;
-
 import disparos.DisparoPersonaje;
 import disparos.FlechaTorre;
 import juego.Juego;

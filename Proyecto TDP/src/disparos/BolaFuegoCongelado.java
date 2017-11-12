@@ -4,7 +4,6 @@ import mapa.*;
 
 public class BolaFuegoCongelado extends DisparoEnemigo{
 	
-	
 	public BolaFuegoCongelado(Celda c)
 	{
 		super(c);
@@ -16,5 +15,4 @@ public class BolaFuegoCongelado extends DisparoEnemigo{
 		moverme = new MoverDisparoEnemigo(this);
 		moverme.start();
 	}
-
 }

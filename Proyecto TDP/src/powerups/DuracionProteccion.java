@@ -1,11 +1,9 @@
 package powerups;
-
 import personajes.Personaje;
 
 public class DuracionProteccion extends Thread {
 
 	protected volatile boolean execute;
-	
 	protected Personaje personaje;
 	protected int vida;
 	

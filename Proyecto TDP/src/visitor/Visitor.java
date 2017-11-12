@@ -6,8 +6,6 @@ import powerups.PowerUp;
 import disparos.DisparoEnemigo;
 import disparos.DisparoPersonaje;
 
-/*Patron de diseño Visitor*/
-
 public interface Visitor {
 
 	public boolean visitarEnemigo(Enemigo e);

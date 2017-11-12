@@ -2,7 +2,6 @@ package mapa;
 import java.util.Iterator;
 import herramientas.*;
 
-
 public class Celda {
 	
 	protected int fila;

@@ -1,5 +1,4 @@
 package personajes;
-
 import javax.swing.ImageIcon;
 import mapa.*;
 
@@ -33,4 +32,3 @@ public class Arquero extends Personaje{
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/Arquero.gif")));
 	}
 }
-	

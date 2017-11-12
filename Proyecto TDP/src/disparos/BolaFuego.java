@@ -4,7 +4,6 @@ import mapa.*;
 
 public class BolaFuego extends DisparoPersonaje{
 	
-	
 	public BolaFuego(Celda c)
 	{
 		super(c);
@@ -15,5 +14,4 @@ public class BolaFuego extends DisparoPersonaje{
 		moverme = new MoverDisparoPersonaje(this);
 		moverme.start();
 	}
-
 }

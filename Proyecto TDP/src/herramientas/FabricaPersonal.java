@@ -1,5 +1,4 @@
 package herramientas;
-
 import mapa.Celda;
 import personajes.*;
 

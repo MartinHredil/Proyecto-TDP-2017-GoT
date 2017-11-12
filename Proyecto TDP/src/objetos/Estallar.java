@@ -1,5 +1,4 @@
 package objetos;
-
 import java.util.Iterator;
 
 import mapa.Celda;

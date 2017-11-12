@@ -1,7 +1,5 @@
 package powerups;
-
 import javax.swing.ImageIcon;
-
 import mapa.Celda;
 import personajes.Personaje;
 

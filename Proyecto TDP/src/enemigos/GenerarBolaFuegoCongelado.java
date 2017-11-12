@@ -7,7 +7,6 @@ import mapa.*;
 public class GenerarBolaFuegoCongelado extends Thread {
 
 	protected volatile boolean execute;
-	
 	protected DragonMuerto dragonmuerto;
 	protected Celda celda;
 	protected Juego juego;

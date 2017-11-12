@@ -1,5 +1,4 @@
 package personajes;
-
 import javax.swing.ImageIcon;
 import mapa.*;
 

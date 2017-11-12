@@ -3,7 +3,6 @@ package powerups;
 public class EntregarPW extends Thread {
 
 	protected volatile boolean execute;
-	
 	protected PowerUp powerup;
 	
 	public EntregarPW(PowerUp pw)

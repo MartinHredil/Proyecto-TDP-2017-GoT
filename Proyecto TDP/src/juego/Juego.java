@@ -1,12 +1,6 @@
 package juego;
 import mapa.*;
 import niveles.*;
-import objetos.Arbol;
-import objetos.Charco;
-import objetos.Objeto;
-
-import java.util.Random;
-
 import enemigos.*;
 import herramientas.Coleccion;
 
