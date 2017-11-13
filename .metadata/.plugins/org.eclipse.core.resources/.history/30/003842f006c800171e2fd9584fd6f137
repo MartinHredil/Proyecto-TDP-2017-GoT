@@ -22,9 +22,11 @@ public class Nivel4 extends Nivel {
 		String S1 = "MMOODMMOODCDMMHHOMOMCCHHMMHOMCCDDOMCD";
 		String S2 = "OOMMDDOMOMDDMMCMMHHMODCHMHODCHDOMCHDOMMOOCHDHDH";
 		String S3 = "OOMMDDOMOMDDMMCMMHHMODCHMHODCHDOMCHDOMMOOCHDHDH";
+		String S4 = "OOMMDDOMOMDDMMCMMHHMODCHMHODCHDOMCHDOMMOOCHDHDH";
 		Oleadas.add(S1);
 		Oleadas.add(S2);
 		Oleadas.add(S3);
+		Oleadas.add(S4);
 	}
 	
 	public void run()
@@ -118,7 +120,7 @@ public class Nivel4 extends Nivel {
 					celda.agregar(nuevo);
 					juego.agregar(nuevo);
 					juego.agregarEnemigo(nuevo);
-					sleep(3000);
+					sleep(4000);
 				}
 				
 				sleep(6000);

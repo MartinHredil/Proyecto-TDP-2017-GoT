@@ -25,6 +25,7 @@ public class Nivel4 extends Nivel {
 		Oleadas.add(S1);
 		Oleadas.add(S2);
 		Oleadas.add(S3);
+		Oleadas.add(S4);
 	}
 	
 	public void run()
