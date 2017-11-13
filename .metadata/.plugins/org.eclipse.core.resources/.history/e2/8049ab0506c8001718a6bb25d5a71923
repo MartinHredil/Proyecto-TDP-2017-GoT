@@ -17,7 +17,7 @@ public class Nivel4 extends Nivel {
 	public Nivel4(Juego j)
 	{
 		juego = j;
-		monedasIniciales=1000;
+		monedasIniciales=1500;
 		Oleadas = new Coleccion<String>();
 		String S1 = "MMOODMMOODCDMMHHOMOMCCHHMMHOMCCDDOMCD";
 		String S2 = "OOMMDDOMOMDDMMCMMHHMODCHMHODCHDOMCHDOMMOOCHDHDH";
