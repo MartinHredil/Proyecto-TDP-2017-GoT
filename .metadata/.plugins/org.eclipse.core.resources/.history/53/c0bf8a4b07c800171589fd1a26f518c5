@@ -32,46 +32,43 @@ public abstract class DisparoPersonaje extends Contenido {
 	public void mover()
 	{
 		boolean mover = true;
-		if(miCelda!=null)
+		Celda sig = miCelda.getDerecha();
+		int cont = 0;
+		Contenido aux;
+		if(sig!=null)
 		{
-			Celda sig = miCelda.getDerecha();
-			int cont = 0;
-			Contenido aux;
-			if(sig!=null)
+			while(cont<80 && mover)
 			{
-				while(cont<80 && mover)
+				cont++;
+				sig = miCelda.getMapa().getCelda(miCelda.getFila(), miCelda.getColumna()+cont);
+				if(sig!=null)
 				{
-					cont++;
-					sig = miCelda.getMapa().getCelda(miCelda.getFila(), miCelda.getColumna()+cont);
-					if(sig!=null)
+					Iterator<Contenido> it = sig.getContenido();
+					while(it.hasNext())
 					{
-						Iterator<Contenido> it = sig.getContenido();
-						while(it.hasNext())
+						aux = it.next();
+						if(aux!= null && aux.aceptar(miVisitor))
 						{
-							aux = it.next();
-							if(aux!= null && aux.aceptar(miVisitor))
-							{
-								mover = false;
-							}
+							mover = false;
 						}
 					}
 				}
-				
-				if(mover)
-				{
-					miCelda.quitar(posicion);
-					miCelda = miCelda.getDerecha();
-					miCelda.agregar(this);
-				}
-				else
-				{
-					destruir();
-				}
+			}
+			
+			if(mover)
+			{
+				miCelda.quitar(posicion);
+				miCelda = miCelda.getDerecha();
+				miCelda.agregar(this);
 			}
 			else
 			{
 				destruir();
 			}
+		}
+		else
+		{
+			destruir();
 		}
 	}
 	

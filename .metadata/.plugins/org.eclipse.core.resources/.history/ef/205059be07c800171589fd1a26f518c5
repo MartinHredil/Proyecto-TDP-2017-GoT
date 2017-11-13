@@ -51,20 +51,17 @@ public abstract class Enemigo extends Contenido {
 	public void destruir()
 	{
 		moverme.terminate();
-		if(miCelda!=null)
+		Juego j = miCelda.getMapa().getJuego();
+		j.incrementarMonedas(monedas);
+		j.incrementarPuntos(puntos);
+		j.quitarEnemigo(this);
+		if(bonus)
 		{
-			Juego j = miCelda.getMapa().getJuego();
-			j.incrementarMonedas(monedas);
-			j.incrementarPuntos(puntos);
-			j.quitarEnemigo(this);
-			if(bonus)
-			{
-				Random r = new Random();
-				PowerUp nuevo = director.crearPowerUP(miCelda, (r.nextInt(4)+1));
-				if(nuevo!=null && miCelda!=null)
-				miCelda.agregar(nuevo);
-				j.agregar(nuevo);
-			}
+			Random r = new Random();
+			PowerUp nuevo = director.crearPowerUP(miCelda, (r.nextInt(4)+1));
+			if(nuevo!=null && miCelda!=null)
+			miCelda.agregar(nuevo);
+			j.agregar(nuevo);
 		}
 		super.destruir();
 	}
