@@ -12,15 +12,27 @@ import herramientas.*;
 
 public class GUI extends JFrame{
 
-	protected int cantFilas,cantColumnas,alto,ancho,fabricado,cantidadBombas;	
+	protected int cantFilas;
+	protected int cantColumnas;
+	protected int alto;
+	protected int ancho;	
 	
 	protected Juego juego;
 	protected Mapa mapa;
 	protected FabricaPersonajes fabricaPersonajes;
 	protected FabricaObjetos fabricaObjetos;
+	protected int fabricado;
+	protected int cantidadBombas;
 	
-	protected JPanel panelOpciones,panelJuego;
-	protected JLabel etiqueta,etiquetaPuntos,etiquetaMonedas,etiquetaInformacion,etiquetaMarket;
+	protected JPanel panelOpciones;
+	protected JPanel panelJuego;
+	
+	protected JLabel etiqueta;
+	protected JLabel etiquetaPuntos;
+	protected JLabel etiquetaMonedas;
+	protected JLabel etiquetaInformacion;
+	protected JLabel etiquetaMarket;
+	
 	protected JButton market[];
 	protected String nombres[];
 	
@@ -163,11 +175,8 @@ public class GUI extends JFrame{
 				while(it.hasNext())
 				{
 					etiqueta = it.next().getGrafico();
-					if(etiqueta!=null)
-					{
-						etiqueta.setBounds(j,i*80,80,80);
-						panelJuego.add(etiqueta);
-					}
+					etiqueta.setBounds(j,i*80,80,80);
+					panelJuego.add(etiqueta);
 				}
 			}
 		}
@@ -188,8 +197,7 @@ public class GUI extends JFrame{
 					if(c!=null)
 					{
 						etiqueta = c.getGrafico();
-						if(etiqueta!=null)
-							etiqueta.setBounds(j,i*80,80,80);
+						etiqueta.setBounds(j,i*80,80,80);
 					}
 				}
 			}
