@@ -1,0 +1,23 @@
+El juego inicialmente comienza por el Nivel 1, el cual tiene una cantidad de monedas iniciales de 200
+La cantidad de monedas iniciales aumnenta en cada nivel debido a que la dificultad es aumentada.
+
+Al iniciar el juego, el jugador dispone de unos pocos segundos antes de que comiencen a llegar enemigos.
+El jugador debe seleccionar personajes disponibles en la tienda que se encuentra en la esquina superior derecha de la ventana y
+colocarlos en la zona de batalla.
+Solo podra utilizar personajes que pueda pagar, el precio de cada personaje figura abajo de la imagen de cada uno, el jugador
+no podra colocar un personaje en la zona de batalla que no pueda pagar.
+
+Cuando los personajes combaten con los enemigos, si los enemigos mueren, pueden o no liberan powerups, estos pueden ser tomados 
+unicamente por personajes que se encuentren cerca.
+Los PowerUps tienen efectos distintos dependiendo de su color
+Un PowerUP Azul, otorga un plus de ataque al personaje que lo posea.
+Un PowerUp Verde, otorga un plus de vida al personaje que lo posea.
+Un PowerUP Rojo, otorga inmunidad al personaje que lo posea por un tiempo determinado.
+Un PowerUP Violeta, otorga al jugador la posibilidad de colocar un objeto especial, una bomba.
+Por cada porwerup violeta que el jugador obtenga, conseguira una bomba.
+Cuando se tiene una bomba, es posible seleccionarla en la tienda para colocarla en la zona de batalla. Las bombas explotan a
+unos escasos segundos destruyen todo lo que hay en el area de la fila de batalla. El jugador debe tener cuidado, porque una bomba puede
+destruir sus defensas o sus personajes.
+
+Dependiendo del nivel, la zona de batalla contara con arboles y lagos, los lagos son temporales y desaparecen con el paso del tiempo.
+Si el jugador pierde y desea reintentar, continuara en el nivel en el que perdio, pero perdera todos sus puntos.
