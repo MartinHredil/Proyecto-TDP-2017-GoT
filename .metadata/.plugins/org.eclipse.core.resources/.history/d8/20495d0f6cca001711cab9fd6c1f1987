@@ -14,7 +14,7 @@ public class Muerto extends Enemigo {
 		
 		velocidad = 10;
 		monedas = 40;
-		puntos = 200;
+		puntos = 300;
 		
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/MuertoCaminando.gif")));
 		if(c!=null)

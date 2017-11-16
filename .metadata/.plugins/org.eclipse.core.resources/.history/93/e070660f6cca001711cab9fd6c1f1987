@@ -14,7 +14,7 @@ public class Caminante extends Enemigo {
 		
 		velocidad = 10;
 		monedas = 50;
-		puntos = 500;
+		puntos = 600;
 		
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/CaminanteCaminando.gif")));
 		

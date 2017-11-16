@@ -14,7 +14,7 @@ public class Oso extends Enemigo {
 		
 		velocidad = 10;
 		monedas = 30;
-		puntos = 100;
+		puntos = 300;
 		
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/sources/OsoCaminando.gif")));
 		
